@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mina de Terras Raras — Recursos, tecnologia e sustentabilidade</title>
+<title>Mina de Terras Raras — Brasil, tecnologia e sustentabilidade</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 <script>
@@ -44,10 +44,10 @@
 <header class="sticky top-0 z-40 border-b border-earth-400/30 bg-[#1a120c]/95 backdrop-blur">
   <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
     <button type="button" data-screen="mina" class="nav-btn text-left">
-      <p class="text-[10px] uppercase tracking-[.22em] text-neon-300">Feira de ciências</p>
+      <p class="text-[10px] uppercase tracking-[.22em] text-neon-300">Feira de ciências · Brasil</p>
       <p class="text-sm font-semibold">Mina de Terras Raras</p>
     </button>
-    <nav class="flex rounded-lg border border-steel-700 bg-steel-900 p-1 text-sm" aria-label="Telas">
+    <nav class="flex rounded-lg border border-steel-700 bg-steel-900 p-1 text-xs sm:text-sm" aria-label="Telas">
       <button type="button" data-screen="mina" id="tab-mina" class="nav-btn rounded-md px-3 py-1.5 font-medium">
         <i class="fa-solid fa-industry mr-1"></i> Recursos e Tecnologia
       </button>
@@ -64,16 +64,31 @@
       <div class="absolute inset-0 bg-gradient-to-br from-earth-700 via-[#2a1a10] to-steel-900"></div>
       <div class="absolute -right-16 -top-20 h-64 w-64 rounded-full bg-neon-500/10 blur-3xl"></div>
       <div class="relative mx-auto max-w-6xl px-5 py-10 md:py-12">
-        <p class="mb-3 text-xs uppercase tracking-[.18em] text-neon-300">Página 1 · lavra e química no mesmo painel</p>
-        <h1 class="max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">Recursos e Tecnologia<br><span class="text-neon-300">da cava ao óxido puro</span></h1>
-        <p class="mt-4 max-w-2xl text-sm leading-relaxed text-earth-100 md:text-base">Terras raras são 17 metais: escândio, ítrio e os 15 lantanídeos. Vários não são raros na crosta. O difícil é concentrá-los e separá-los, porque as químicas são quase iguais. Essa separação é o que transforma rocha barata em insumo de motor, turbina e tela.</p>
+        <p class="mb-3 text-xs uppercase tracking-[.18em] text-neon-300">Página 1 · lavra, geologia e química</p>
+        <h1 class="max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">Recursos e Tecnologia<br><span class="text-neon-300">do Brasil ao óxido puro</span></h1>
+        <p class="mt-4 max-w-2xl text-sm leading-relaxed text-earth-100 md:text-base">Terras raras são 17 metais: escândio, ítrio e os 15 lantanídeos. Vários não são raros na crosta. O difícil é concentrá-los e separá-los. O Brasil tem geologia para isso. O que ainda falta, em escala, é a planta que transforma rocha em óxido de um único elemento.</p>
       </div>
     </div>
 
     <div class="mx-auto max-w-6xl px-5 py-8">
+      <div class="mb-6 grid gap-3 md:grid-cols-2">
+        <button type="button" data-id="brasil" class="info-card rounded-2xl border border-neon-400/40 bg-gradient-to-br from-steel-900 to-earth-700 p-5 text-left">
+          <p class="text-[11px] uppercase tracking-[.16em] text-neon-300">O gigante das reservas</p>
+          <h2 class="mt-2 text-2xl font-semibold">Brasil no topo mundial</h2>
+          <p class="mt-2 text-sm leading-relaxed text-earth-100">Cerca de 21 milhões de toneladas de óxido equivalente nas tabelas do USGS: 2º ou 3º lugar no mundo, conforme o ano, atrás da China e muito perto do Vietnã. Reserva medida não é mina em produção.</p>
+          <p class="mt-3 text-xs text-neon-300">Toque para a ficha geopolítica</p>
+        </button>
+        <button type="button" data-id="minas" class="info-card rounded-2xl border border-earth-300/40 bg-earth-600/70 p-5 text-left">
+          <p class="text-[11px] uppercase tracking-[.16em] text-neon-300">Foco regional</p>
+          <h2 class="mt-2 text-2xl font-semibold">Minas Gerais</h2>
+          <p class="mt-2 text-sm leading-relaxed text-earth-100">O estado já é o coração mineral do país. Nas terras raras, o destaque atual é o planalto de Poços de Caldas: argilas iônicas no complexo alcalino, ainda em projeto, não em grande produção.</p>
+          <p class="mt-3 text-xs text-neon-300">Toque para a geologia de MG</p>
+        </button>
+      </div>
+
       <div class="mb-3">
         <h2 class="text-xl font-semibold">Lavra e logística</h2>
-        <p class="text-sm text-earth-200">Cava a céu aberto. Clique na escavadeira, no caminhão e nas pilhas.</p>
+        <p class="text-sm text-earth-200">Cava estilizada. Clique na escavadeira, no caminhão e nas pilhas.</p>
       </div>
 
       <div class="overflow-hidden rounded-2xl border border-earth-400/40 bg-gradient-to-b from-[#6b4a30] via-[#4a3220] to-[#24160c] shadow-2xl">
@@ -139,7 +154,7 @@
 
         <div class="border-t border-neon-400/20 bg-[#121920]/95 p-4 md:p-6">
           <h3 class="text-lg font-semibold">Torre de processamento químico</h3>
-          <p class="mt-1 text-sm text-steel-200">O fluxo fica na mesma tela da mina. Toque cada etapa.</p>
+          <p class="mt-1 text-sm text-steel-200">O mesmo fluxo vale para uma argila de Poços de Caldas ou para uma rocha dura: muda o reagente, não a lógica.</p>
           <div class="mt-4 grid gap-3 md:grid-cols-4">
             <button type="button" data-id="brita" class="info-card step rounded-xl border border-steel-700 bg-steel-900 p-4 text-left">
               <p class="text-[11px] text-neon-300">01</p>
@@ -149,7 +164,7 @@
             <button type="button" data-id="lixivia" class="info-card step rounded-xl border border-steel-700 bg-steel-900 p-4 text-left">
               <p class="text-[11px] text-neon-300">02</p>
               <h4 class="mt-1 font-semibold">Lixiviação</h4>
-              <p class="mt-1 text-xs text-steel-200">Ataque ácido, ou rota alcalina, leva os metais à solução.</p>
+              <p class="mt-1 text-xs text-steel-200">Ataque ácido, ou sal em argila iônica, leva os metais à solução.</p>
             </button>
             <button type="button" data-id="solvente" class="info-card step step-on rounded-xl border border-neon-400/50 bg-steel-900 p-4 text-left">
               <p class="text-[11px] text-neon-300">03</p>
@@ -159,7 +174,7 @@
             <button type="button" data-id="torio-cuidado" class="info-card step rounded-xl border border-earth-300/40 bg-earth-600 p-4 text-left">
               <p class="text-[11px] text-neon-300">04</p>
               <h4 class="mt-1 font-semibold">Controle do tório</h4>
-              <p class="mt-1 text-xs text-earth-100">A fração radioativa da monazita sai do produto e fica isolada.</p>
+              <p class="mt-1 text-xs text-earth-100">A fração radioativa sai do produto e fica isolada.</p>
             </button>
           </div>
           <div class="mt-4 rounded-xl border border-neon-400/20 bg-steel-900/80 p-4">
@@ -171,8 +186,8 @@
       </div>
 
       <div class="mt-8 flex justify-center pb-6">
-        <button type="button" data-screen="verde" class="nav-btn inline-flex items-center gap-2 rounded-xl bg-neon-400 px-5 py-3 text-sm font-semibold text-steel-900 hover:bg-neon-300">
-          Explorar Mineração Sustentável e Meio Ambiente <i class="fa-solid fa-arrow-right text-xs"></i>
+        <button type="button" data-screen="verde" class="nav-btn inline-flex items-center gap-2 rounded-xl bg-neon-400 px-5 py-3 text-center text-sm font-semibold text-steel-900 hover:bg-neon-300">
+          Explorar Mineração Sustentável, Meio Ambiente e Lucros <i class="fa-solid fa-arrow-right text-xs"></i>
         </button>
       </div>
     </div>
@@ -181,45 +196,61 @@
   <section id="screen-verde" class="screen">
     <div class="border-b border-neon-400/20 bg-gradient-to-br from-[#102018] via-steel-900 to-earth-700">
       <div class="mx-auto max-w-6xl px-5 py-10">
-        <button type="button" data-screen="mina" class="nav-btn mb-4 inline-flex items-center gap-2 text-sm font-medium text-neon-300 hover:text-white">
+        <button type="button" data-screen="mina" class="nav-btn mb-5 inline-flex items-center gap-2 text-sm font-medium text-neon-300 hover:text-white">
           <i class="fa-solid fa-arrow-left"></i> Retornar aos Recursos e Tecnologia
         </button>
-        <p class="text-xs uppercase tracking-[.18em] text-neon-300">Página 2 · ambiente, engenharia e valor</p>
+        <p class="text-xs uppercase tracking-[.18em] text-neon-300">Página 2 · ecologia industrial</p>
         <h1 class="mt-2 max-w-3xl text-3xl font-semibold md:text-4xl">Mineração sustentável, meio ambiente e lucros</h1>
-        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-earth-100">O lucro do óxido puro não apaga a cava. Sustentabilidade aqui é recuperar solo, circular água, vigiar barragens e não misturar rejeito radioativo com material de obra.</p>
+        <button type="button" data-id="definicao" class="info-card mt-5 block w-full rounded-2xl border border-neon-400/40 bg-[#101810]/80 p-5 text-left">
+          <p class="text-[11px] uppercase tracking-[.16em] text-neon-300">O que é mineração sustentável?</p>
+          <p class="mt-2 text-sm leading-relaxed text-earth-50 md:text-base">É lavrar o que a tecnologia pede sem tratar água, solo e rejeito como sobra. O equilíbrio é triplo: suprir a demanda, manter o ecossistema recuperável e a operação pagável por décadas — não só no ano do pico de preço. Toque para abrir a definição completa.</p>
+        </button>
       </div>
     </div>
 
     <div class="mx-auto max-w-6xl px-5 py-8">
-      <div class="grid gap-4 md:grid-cols-2">
-        <button type="button" data-id="economia" class="info-card rounded-2xl border border-neon-400/30 bg-gradient-to-br from-steel-900 to-[#1a2830] p-5 text-left md:col-span-2">
-          <i class="fa-solid fa-chart-line text-2xl text-neon-300"></i>
-          <h2 class="mt-3 text-lg font-semibold">Importância econômica e lucros</h2>
-          <p class="mt-2 text-sm leading-relaxed text-steel-200">Transição energética, ímãs de neodímio e o salto de preço entre o concentrado misto e o óxido separado. Toque para a cadeia de valor.</p>
+      <h2 class="text-lg font-semibold">Máquinas do pátio e da frente</h2>
+      <p class="mt-1 text-sm text-earth-200">Ícones clicáveis, no mesmo sistema da cava. Nenhuma delas substitui o haul truck de 300 toneladas.</p>
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
+        <button type="button" data-id="empilhadeira" class="hotspot rounded-2xl border border-neon-400/30 bg-gradient-to-br from-[#243028] to-steel-900 p-5 text-left">
+          <span class="flex items-center gap-3">
+            <span class="relative flex h-3 w-3"><span class="pulse-ring absolute inline-flex h-full w-full rounded-full bg-neon-400"></span><span class="relative inline-flex h-3 w-3 rounded-full bg-neon-400"></span></span>
+            <i class="fa-solid fa-dolly text-3xl text-neon-300"></i>
+          </span>
+          <h3 class="mt-3 text-lg font-semibold">Empilhadeira elétrica e autônoma</h3>
+          <p class="mt-2 text-sm leading-relaxed text-steel-200">No pátio de big bags e óxido ensacado. Tira o diesel do galpão e o operador do corredor estreito.</p>
         </button>
-        <button type="button" data-id="recuperacao" class="info-card rounded-2xl border border-earth-300/30 bg-earth-600/60 p-5 text-left">
-          <i class="fa-solid fa-seedling text-2xl text-neon-300"></i>
-          <h2 class="mt-3 font-semibold">Impactos e recuperação do solo</h2>
-          <p class="mt-2 text-sm leading-relaxed text-earth-100">Cava, poeira, resíduo ácido, topsoil guardado, retaludamento e espécies nativas.</p>
-        </button>
-        <button type="button" data-id="barragem" class="info-card rounded-2xl border border-neon-400/30 bg-[#142028] p-5 text-left">
-          <i class="fa-solid fa-water text-2xl text-neon-300"></i>
-          <h2 class="mt-3 font-semibold">Barragens e reúso da água</h2>
-          <p class="mt-2 text-sm leading-relaxed text-steel-200">Piezômetros, radar de talude, filtro prensa e circuito fechado. Evaporação impede um 100% literal.</p>
-        </button>
-        <button type="button" data-id="rejeito" class="info-card rounded-2xl border border-earth-300/30 bg-earth-600/50 p-5 text-left">
-          <i class="fa-solid fa-recycle text-2xl text-neon-300"></i>
-          <h2 class="mt-3 font-semibold">Reaproveitamento de rejeitos</h2>
-          <p class="mt-2 text-sm leading-relaxed text-earth-100">Estéril inerte pode virar agregado. A fração com tório fica isolada.</p>
-        </button>
-        <button type="button" data-id="drones" class="info-card rounded-2xl border border-neon-400/30 bg-gradient-to-br from-steel-900 to-earth-700 p-5 text-left">
-          <i class="fa-solid fa-satellite text-2xl text-neon-300"></i>
-          <h2 class="mt-3 font-semibold">Drones, sensores e satélites</h2>
-          <p class="mt-2 text-sm leading-relaxed text-steel-200">IoT, câmera multiespectral e radar InSAR. O alerta só vale se houver equipe para agir.</p>
+        <button type="button" data-id="autonomo" class="hotspot rounded-2xl border border-earth-300/40 bg-earth-600/60 p-5 text-left">
+          <span class="flex items-center gap-3">
+            <span class="relative flex h-3 w-3"><span class="pulse-ring absolute inline-flex h-full w-full rounded-full bg-neon-400"></span><span class="relative inline-flex h-3 w-3 rounded-full bg-neon-400"></span></span>
+            <i class="fa-solid fa-robot text-3xl text-neon-300"></i>
+          </span>
+          <h3 class="mt-3 text-lg font-semibold">Caminhão e pá robóticos</h3>
+          <p class="mt-2 text-sm leading-relaxed text-earth-100">Frota guiada por GPS, lidar e cerca virtual. A pessoa sai da berma instável e vai para a sala de controle.</p>
         </button>
       </div>
+
+      <h2 class="mt-10 text-lg font-semibold">Impactos, vantagem e valor</h2>
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
+        <button type="button" data-id="recuperacao" class="info-card rounded-2xl border border-earth-300/30 bg-earth-600/50 p-5 text-left md:col-span-2">
+          <i class="fa-solid fa-seedling text-2xl text-neon-300"></i>
+          <h3 class="mt-3 font-semibold">Impactos ambientais e recuperação</h3>
+          <p class="mt-2 text-sm leading-relaxed text-earth-100">Cava, poeira, ácido e drenagem. Topsoil guardado, talude refeito, nativas replantadas — e o rejeito com tório fora desse canteiro.</p>
+        </button>
+        <button type="button" data-id="vantagem" class="info-card rounded-2xl border border-neon-400/30 bg-[#142028] p-5 text-left">
+          <i class="fa-solid fa-scale-balanced text-2xl text-neon-300"></i>
+          <h3 class="mt-3 font-semibold">Por que a lavra sustentável compensa</h3>
+          <p class="mt-2 text-sm leading-relaxed text-steel-200">Menos água nova, menos embargo, minério rastreável. Licença mais rápida não é garantia; conflito menor é.</p>
+        </button>
+        <button type="button" data-id="economia" class="info-card rounded-2xl border border-neon-400/30 bg-gradient-to-br from-steel-900 to-earth-700 p-5 text-left">
+          <i class="fa-solid fa-chart-line text-2xl text-neon-300"></i>
+          <h3 class="mt-3 font-semibold">Importância econômica e lucros</h3>
+          <p class="mt-2 text-sm leading-relaxed text-steel-200">O salto de preço está no óxido separado, não na pá de rocha. Eficiência corta custo; não cria lucro exponencial automático.</p>
+        </button>
+      </div>
+
       <div class="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-steel-700 pt-6 pb-8">
-        <p class="max-w-xl text-xs text-steel-200">Painel didático. Massas, teores e preços são ordens de grandeza, não a ficha de uma mina ou de uma cotação do dia.</p>
+        <p class="max-w-xl text-xs text-steel-200">Painel didático. Reservas seguem a ordem de grandeza do USGS (cerca de 21 milhões de t de óxido no Brasil). Ranking fino muda conforme a edição e o critério reserva × recurso.</p>
         <button type="button" data-screen="mina" class="nav-btn inline-flex items-center gap-2 rounded-lg bg-earth-300 px-4 py-2 text-sm font-semibold text-earth-700 hover:bg-earth-200">
           <i class="fa-solid fa-arrow-left"></i> Retornar aos Recursos e Tecnologia
         </button>
@@ -248,92 +279,191 @@
 
 <script>
 const FLUXO = {
-  brita: { kicker:"Etapa 01", title:"Britar e concentrar antes da química cara", body:"Britadores e moinhos liberam o grão de bastnasita ou monazita. Flotação com bolhas, ou um campo magnético forte, descarta a maior parte da ganga. O concentrado ainda mistura vários lantanídeos." },
-  lixivia: { kicker:"Etapa 02", title:"Ataque que leva o metal para a água", body:"Ácidos como o sulfúrico ou o clorídrico, ou uma rota alcalina depois de um cozimento térmico, atacam o concentrado. Os metais viram íons Ln³⁺. O licor e a torta ácida precisam de tratamento, não de um córrego." },
+  brita: { kicker:"Etapa 01", title:"Britar e concentrar antes da química cara", body:"Britadores e moinhos liberam o grão. Flotação ou um campo magnético forte descarta a maior parte da ganga. Em argila iônica, às vezes basta desagregar e peneirar: o metal já está adsorvido na partícula fina, não trancado num cristal duro." },
+  lixivia: { kicker:"Etapa 02", title:"Ataque que leva o metal para a água", body:"Rocha dura (bastnasita, monazita) pede ácido forte ou rota alcalina. Argila iônica, como a estudada em Poços de Caldas, pode soltar os íons com soluções salinas bem mais brandas. O licor, nos dois casos, precisa de tratamento." },
   solvente: { kicker:"Etapa 03", title:"Íons quase idênticos, cascata longa", body:"A fase aquosa carrega os íons Ln³⁺. A fase orgânica carrega um extratante, que prefere um lantanídeo ao vizinho por uma margem mínima. Misturadores-decantadores repetem o contato dezenas ou mais de cem vezes, até cada fração poder virar óxido." },
-  "torio-cuidado": { kicker:"Etapa 04", title:"Tório fora do produto vendável", body:"Na monazita, concentrar terras raras também concentra tório. A planta precipita essa fração à parte. Ela não segue para o óxido nem para um aterro comum: entra em controle de dose, poeira e água." }
+  "torio-cuidado": { kicker:"Etapa 04", title:"Tório fora do produto vendável", body:"Onde há monazita, ou no Morro do Ferro, concentrar terras raras também concentra tório. A planta precipita essa fração à parte. Ela não segue para o óxido nem para um aterro comum." }
 };
 
 const FICHAS = {
+  brasil: {
+    kicker:"Geopolítica · USGS", title:"O Brasil no mapa das reservas", icon:"fa-solid fa-earth-americas", bar:"#2ad4ff",
+    lead:"A frase “segunda maior reserva do mundo” circula no noticiário. O número sólido é outro: o Brasil está no grupo de cabeça, não sozinho no segundo degrau.",
+    facts:[
+      ["Quanto","O USGS tem publicado o Brasil na casa de 21 milhões de toneladas de óxido equivalente. A China lidera, perto de 44 milhões. O Vietnã aparece ao lado ou um pouco à frente do Brasil, conforme a edição. Por isso o lugar justo na feira é 2º ou 3º, não um ranking cravado."],
+      ["Reserva não é mina","Reserva é o que já foi medido e, em tese, pode ser lavrado. Recurso é maior e mais incerto. Boa parte da geologia brasileira ainda está na coluna dos recursos."],
+      ["O gargalo","Quem só exporta concentrado misto captura pouco valor. A planta de separação — dezenas de estágios de solvente — é o que falta em escala no país."],
+      ["Onde já há lavra","A produção comercial inicial de argila iônica no Brasil começou em Goiás (Serra Verde, Minaçu), não em Minas. MG entra como província avançada de exploração."]
+    ]
+  },
+  minas: {
+    kicker:"Minas Gerais", title:"Poços de Caldas e a tradição mineral", icon:"fa-solid fa-map-location-dot", bar:"#d4b896",
+    lead:"MG não é um detalhe do mapa. É o estado que já sabe lavrar, escoar e formar engenheiro de minas. Nas terras raras, o alvo novo é uma geologia antiga.",
+    facts:[
+      ["O complexo","O maciço alcalino de Poços de Caldas, no sul de Minas, foi intemperizado por milhões de anos. O resultado são argilas e lateritas que adsorvem terras raras — o mesmo tipo de minério que a China lavrou no sul do país."],
+      ["Projetos","Caldeira e Colossus, no planalto, são exemplos de depósitos em estudo e licenciamento. Ainda não são uma usina de óxidos separados. Tratar projeto como produção engana a feira."],
+      ["Morro do Ferro","Dentro do mesmo maciço há um corpo clássico de tório e terras raras, estudado desde o século XX. É o lembrete local: onde o teor sobe, a radioatividade natural pode subir junto."],
+      ["O que MG já entrega","Ferro, ouro, fosfato e, em Araxá, o nióbio do carbonatito da CBMM — outro crítico estratégico, não uma terra rara. A infraestrutura e a UFOP/UFMG são a vantagem, não uma cava de neodímio já pronta."]
+    ]
+  },
   escavadeira: {
     kicker:"Lavra · baixo teor", title:"Escavadeira hidráulica", icon:"fa-solid fa-tractor", bar:"#2ad4ff",
-    lead:"Abre o banco de minério já fragmentado e separa, na pá, o que vai para a planta do que vai para a pilha de estéril.",
-    facts:[["Movimentação","Modelos de mina passam de 300 toneladas, com caçamba de dezenas de metros cúbicos — o volume de uma sala pequena por ciclo."],["Baixo teor","Muitos depósitos têm óxidos de terras raras na faixa de décimos a poucos por cento da rocha. A pá move sobretudo ganga."],["Por que importa","Cada tonelada de estéril que entra na planta gasta ácido, energia e espaço de rejeito à toa."]]
+    lead:"Abre o banco já fragmentado e separa, na pá, o que vai para a planta do que vai para a pilha de estéril.",
+    facts:[
+      ["Movimentação","Modelos de mina passam de 300 toneladas, com caçamba de dezenas de metros cúbicos."],
+      ["Baixo teor","Muitos depósitos têm óxidos de terras raras na faixa de décimos a poucos por cento. A pá move sobretudo ganga. Argila iônica pode ter teor parecido, mas a partícula útil já está solta."],
+      ["Por que importa","Estéril que entra na planta gasta ácido, energia e espaço de rejeito à toa."]
+    ]
   },
   caminhao: {
     kicker:"Logística pesada", title:"Caminhão de carga fora de estrada", icon:"fa-solid fa-truck-monster", bar:"#7ee7ff",
-    lead:"Não roda em rua. Sobe a rampa da cava com centenas de toneladas até o britador. É o elo entre a frente e a torre.",
-    facts:[["Carga","Os maiores levam cerca de 300 a 400 toneladas por viagem. Quase tudo ainda é rocha, não óxido."],["Combustível","Diesel na casa de centenas de litros por hora em subida carregada. Frotas elétricas e trólebus de mina cortam esse gasto."],["Fila","Caminhão parado é britador parado, e britador parado é solvente sem alimento."]]
+    lead:"Não roda em rua. Sobe a rampa com centenas de toneladas até o britador. É o elo entre a frente e a torre.",
+    facts:[
+      ["Carga","Os maiores levam cerca de 300 a 400 toneladas por viagem. Quase tudo ainda é rocha, não óxido."],
+      ["Combustível","Diesel na casa de centenas de litros por hora em subida carregada. Trocar essa máquina por uma empilhadeira elétrica não fecha a conta: são serviços diferentes."],
+      ["Fila","Caminhão parado é britador parado, e britador parado é solvente sem alimento."]
+    ]
   },
   neodimio: {
     kicker:"Lantanídeo · Z = 60", title:"Neodímio (Nd)", icon:"fa-solid fa-magnet", bar:"#d4b896",
     lead:"O metal do ímã permanente comercial mais forte. Poucos gramas mudam o torque de um motor.",
-    facts:[["Química","No minério, íon Nd³⁺. No ímã, a fase Nd₂Fe₁₄B, com ferro e boro."],["Onde","Motores de carros elétricos, fones, HDs e geradores de várias turbinas de acionamento direto."],["Extração","Sai sobretudo da bastnasita. Separá-lo do praseodímio exige a cascata longa de solvente."]]
+    facts:[
+      ["Química","No minério, íon Nd³⁺. No ímã, a fase Nd₂Fe₁₄B."],
+      ["Onde","Motores de carros elétricos, fones, HDs e geradores de várias turbinas de acionamento direto."],
+      ["Extração","Separá-lo do praseodímio exige a cascata longa de solvente. É esse óxido, não a pá de argila, que o mercado paga caro."]
+    ]
   },
   disprosio: {
     kicker:"Lantanídeo pesado · Z = 66", title:"Disprósio (Dy)", icon:"fa-solid fa-temperature-high", bar:"#c4a35a",
-    lead:"Entra em dose pequena no ímã de neodímio para a força não cair quando o motor esquenta.",
-    facts:[["Química","Dy³⁺. Bem mais escasso no minério do que o neodímio."],["Calor","Sem o aditivo, ímãs comuns enfraquecem numa faixa típica de cerca de 80 a 150 °C, conforme a liga."],["Valor","Pouca massa e separação difícil fazem do óxido de disprósio um dos produtos mais caros da série."]]
+    lead:"Dose pequena no ímã de neodímio para a força não cair quando o motor esquenta.",
+    facts:[
+      ["Química","Dy³⁺. Bem mais escasso do que o neodímio."],
+      ["Calor","Sem o aditivo, ímãs comuns enfraquecem numa faixa típica de cerca de 80 a 150 °C, conforme a liga."],
+      ["Valor","Pouca massa e separação difícil colocam o óxido de disprósio entre os produtos mais caros da série."]
+    ]
   },
   lantanio: {
     kicker:"Lantanídeo · Z = 57", title:"Lantânio (La)", icon:"fa-solid fa-camera", bar:"#ead9c4",
     lead:"Dá nome à série. Trabalha mais em vidro e catalisador do que em ímã.",
-    facts:[["Óptica","Óxido de lantânio sobe o índice de refração: a lente fica mais fina."],["Indústria","Catalisadores de refino de petróleo e baterias de níquel-hidreto metálico."],["Mina","Abundante entre as terras raras leves, mas só fica puro depois da mesma cascata."]]
+    facts:[
+      ["Óptica","Óxido de lantânio sobe o índice de refração: a lente fica mais fina."],
+      ["Indústria","Catalisadores de refino e baterias de níquel-hidreto metálico."],
+      ["Mina","Abundante nas terras raras leves, mas só fica puro depois da mesma cascata."]
+    ]
   },
   litio: {
     kicker:"Metal alcalino · não é terra rara", title:"Lítio (Li)", icon:"fa-solid fa-car-battery", bar:"#b7c48a",
-    lead:"Não está entre os 17. Está na esteira porque a feira mistura os dois. No carro elétrico, os papéis são diferentes.",
-    facts:[["Química","Z = 3, o metal mais leve. O íon Li⁺ guarda carga com facilidade."],["Onde","Na bateria. O neodímio vai no motor; o lítio, na célula."],["Lavra","Salmoura de salar ou espodumênio. Não segue o fluxograma da bastnasita."]]
+    lead:"Não está entre os 17. No carro elétrico, o neodímio vai no motor e o lítio na bateria. Minas Gerais também pesquisa lítio, no Vale do Jequitinhonha — outra jazida, outro fluxograma.",
+    facts:[
+      ["Química","Z = 3, o metal mais leve."],
+      ["Não misturar","Espodumênio do Jequitinhonha não se beneficia como a argila de Poços de Caldas."],
+      ["Por que está na esteira","Porque a feira quase sempre junta os dois nomes."]
+    ]
   },
   monazita: {
     kicker:"Actinídeo acompanhante · Z = 90", title:"Tório na monazita", icon:"fa-solid fa-radiation", bar:"#8d6e5c",
-    lead:"O tório não é terra rara. É um metal radioativo dentro da monazita, fosfato que também traz cério, lantânio e neodímio.",
-    facts:[["Decaimento","Th-232 tem meia-vida de cerca de 14 bilhões de anos. A cadeia, porém, emite radiação que a usina precisa gerir."],["Concentração","Beneficiar a monazita deixa o resíduo mais ativo do que o minério original."],["Destino","Esse sólido não é entulho. Exige barreira, poeira controlada e plano de fechamento."]]
+    lead:"O tório não é terra rara. Viaja na monazita e, em MG, também no Morro do Ferro.",
+    facts:[
+      ["Decaimento","Th-232 tem meia-vida de cerca de 14 bilhões de anos. A cadeia emite radiação que a usina precisa gerir."],
+      ["Concentração","Beneficiar o mineral deixa o resíduo mais ativo do que a rocha original."],
+      ["Destino","Depósito controlado. Não é agregado de obra nem solo de replantio."]
+    ]
   },
   brita: {
     kicker:"Torre · 01", title:"Britagem e concentração", icon:"fa-solid fa-hammer", bar:"#c5ccd4",
-    lead:"Enquanto o mineral útil estiver preso no bloco, não há química que separe neodímio de lantânio.",
-    facts:[["Moagem","Até dezenas de micrômetros. É um dos maiores gastos de eletricidade da mina."],["Física primeiro","Flotação ou separação magnética evitam mandar ganga para o ácido."],["Limite","O concentrado ainda é uma mistura de lantanídeos."]]
+    lead:"Sem liberar o grão, não há química que separe neodímio de lantânio.",
+    facts:[
+      ["Moagem","Em rocha dura, até dezenas de micrômetros. É um dos maiores gastos de eletricidade."],
+      ["Argila","Pode pular o britador pesado e ir para desagregação e classificação."],
+      ["Limite","O concentrado ainda mistura vários lantanídeos."]
+    ]
   },
   lixivia: {
     kicker:"Torre · 02", title:"Lixiviação", icon:"fa-solid fa-vial", bar:"#7ee7ff",
-    lead:"O sólido vira solução. Só então a planta consegue escolher íon por íon.",
-    facts:[["Reagentes","Ataque com ácido sulfúrico ou clorídrico, ou rota alcalina, conforme bastnasita ou monazita."],["Saída","Uma solução com vários Ln³⁺ ainda juntos."],["Efluente","Neutralizar o licor faz parte do processo. Lançar ácido no rio é o erro que o painel aponta."]]
+    lead:"O sólido vira solução. O reagente muda com o minério; a obrigação de tratar o licor, não.",
+    facts:[
+      ["Rocha dura","Ácido sulfúrico, clorídrico ou rota alcalina."],
+      ["Argila iônica","Soluções de sais (amônio ou sódio, conforme o projeto) trocam os íons adsorvidos. Mais brando não significa efluente zero."],
+      ["Efluente","Neutralizar faz parte do processo. Lançar o licor no rio é o erro que o painel aponta."]
+    ]
   },
   solvente: {
     kicker:"Torre · 03", title:"Extração por solvente", icon:"fa-solid fa-flask-vial", bar:"#2ad4ff",
-    lead:"Um único contato quase não distingue neodímio de praseodímio. A planta repete o contato até a diferença aparecer.",
-    facts:[["Fases","Aquosa ácida e orgânica com extratante. Depois de misturadas, separam-se por densidade."],["Cascata","Cada estágio enriquece um metal e empobrece o vizinho. Podem ser dezenas ou mais de cem."],["Produto","A solução pura é precipitada e calcinada até óxido, que pode virar metal."]]
+    lead:"Um único contato quase não distingue neodímio de praseodímio. A planta repete até a diferença aparecer.",
+    facts:[
+      ["Fases","Aquosa ácida e orgânica com extratante. Depois de misturadas, separam-se por densidade."],
+      ["Cascata","Cada estágio enriquece um metal e empobrece o vizinho."],
+      ["Produto","A solução pura é precipitada e calcinada até óxido. Esse é o quilograma que o mercado de ímã compra."]
+    ]
   },
   "torio-cuidado": {
     kicker:"Torre · 04", title:"Controle do tório radioativo", icon:"fa-solid fa-radiation", bar:"#8d6e5c",
     lead:"Separar neodímio sem destino para o tório só muda o problema de lugar.",
-    facts:[["Onde aparece","Sobretudo na rota da monazita, não em toda bastnasita."],["O que a planta faz","Precipita a fração radioativa e a isola do óxido vendável."],["O que não fazer","Misturar esse sólido com rejeito inerte ou com material de construção."]]
+    facts:[
+      ["Onde aparece","Monazita e corpos como o Morro do Ferro. Não está em toda argila iônica no mesmo nível."],
+      ["O que a planta faz","Precipita a fração radioativa e a isola do óxido vendável."],
+      ["O que não fazer","Misturar esse sólido com estéril inerte ou com o solo do replantio."]
+    ]
   },
-  economia: {
-    kicker:"Valor e utilidade", title:"O lucro está no óxido separado", icon:"fa-solid fa-chart-line", bar:"#2ad4ff",
-    lead:"A rocha lavrada vale pouco. O óxido de um único elemento, com pureza de especificação, entra em mercados que pagam pela função: torque, calor, óptica, catálise.",
-    facts:[["Transição energética","Ímãs NdFeB em motores de carros elétricos e em geradores de várias turbinas sem caixa de engrenagem. Um motor de passeio pode levar cerca de 1 a 2 kg de ímãs; uma turbina de acionamento direto, centenas de quilos."],["Quem captura o lucro","O concentrado misto é uma commodity de baixo valor relativo. A planta de separação é o gargalo: óxidos puros, sobretudo os pesados como o disprósio, valem ordens de grandeza a mais por quilo do que o minério bruto."],["Outros mercados","Cério e lantânio, em massa, abastecem catalisadores de petróleo e de escapamento, além do polimento de vidro. Nem todo lucro da série vem do ímã."],["Risco do negócio","Preço oscila com tecnologia (menos disprósio por motor) e com a oferta de poucas plantas de separação no mundo. O painel não cita cotação do dia de propósito."]]
+  definicao: {
+    kicker:"Conceito", title:"Mineração sustentável, em três testes", icon:"fa-solid fa-leaf", bar:"#8fbf7a",
+    lead:"Não é um selo nem um caminhão pintado de verde. A lavra passa no teste se a demanda, o ecossistema e o caixa sobrevivem juntos depois que o preço do óxido cair.",
+    facts:[
+      ["Demanda","O mundo pediu ímã, catalisador e tela. Recusar o minério sem substituto só empurra a cava para quem regula menos."],
+      ["Ecossistema","Água em circuito, rejeito classificado, solo devolvido e dose de tório controlada. “Zero impacto” não existe numa cava; impacto recuperável, sim."],
+      ["Caixa de longo prazo","Energia, água nova e multa entram no custo. Uma planta barata que entope o rio fecha na justiça e no mercado."]
+    ]
+  },
+  empilhadeira: {
+    kicker:"Pátio · não é o haul truck", title:"Empilhadeira elétrica e autônoma", icon:"fa-solid fa-dolly", bar:"#2ad4ff",
+    lead:"Trabalha no galpão: big bag de óxido, pallet, amostra, peça. A carga é de quilos a poucas toneladas, não de 300.",
+    facts:[
+      ["O que faz","Eleva, desloca e empilha carga paletizada entre o ensacamento, o estoque e o caminhão de estrada."],
+      ["Emissão local","O motor elétrico tira o diesel e o NOx de dentro do galpão. A emissão total depende de como a eletricidade foi gerada — some da chaminé do pátio, não necessariamente do planeta."],
+      ["Eficiência","Rota repetida, corredor estreito e turno cheio são o caso ideal da máquina autônoma: menos espera e menos produto danificado."],
+      ["Segurança","O operador deixa de ficar a pé no ponto cego. Scanner e cerca virtual param o garfo se alguém entra na faixa."]
+    ]
+  },
+  autonomo: {
+    kicker:"Frente de lavra", title:"Pá e caminhão sem cabine ocupada", icon:"fa-solid fa-robot", bar:"#7ee7ff",
+    lead:"Já rodam em minas de ferro, inclusive no Brasil. Na terra rara a lógica é a mesma: tirar a pessoa do banco que pode escorregar.",
+    facts:[
+      ["Como","GPS de precisão, lidar, radar e uma cerca virtual. A inteligência de bordo segue a rota; a sala de controle intervém na exceção."],
+      ["Onde ajuda","Berma, praça de basculamento, poeira fechada e turno noite. O risco de tombamento não some — deixa de ter um corpo na cabine."],
+      ["O que não é","Não é um robô que decide a geologia. O teor, a brita e o tório continuam sendo problema de engenheiro e de laboratório."],
+      ["IoT","O mesmo rádio que guia a máquina pode mandar pressão de pneu, temperatura de freio e desvio de rota. Dado sem equipe de prontidão é só um número."]
+    ]
   },
   recuperacao: {
-    kicker:"Solo e cobertura", title:"Impacto na cava e retorno do solo", icon:"fa-solid fa-seedling", bar:"#8fbf7a",
-    lead:"Céu aberto remove vegetação, solo superficial e o relevo. Recuperar não é semear no último dia sobre terra compactada.",
-    facts:[["Impactos","Perda de habitat, poeira, ruído, sedimento nos rios e, se a rocha tiver sulfetos ou a planta vazar ácido, drenagem que acidifica a água."],["Topsoil","O solo orgânico é raspado no início e guardado em pilha baixa, para microrganismos e sementes não morrerem compactados."],["Retaludamento","Bancos exauridos são refeitos com inclinação estável e superfície rugosa. Encosta lisa não segura muda nem água."],["Nativas","O replantio usa espécies do ecossistema local, não um gramado genérico. Acompanha-se cobertura e erosão por anos."],["Limite","Rejeito radioativo e solo contaminado por ácido não entram nesse canteiro. Primeiro a química, depois a muda."]]
+    kicker:"Solo e água ácida", title:"Impacto na cava e retorno do terreno", icon:"fa-solid fa-seedling", bar:"#8fbf7a",
+    lead:"Céu aberto remove vegetação, solo e relevo. Recuperar é uma obra que começa no primeiro deapeamento, não no discurso de fechamento.",
+    facts:[
+      ["Impactos","Habitat, poeira, ruído, sedimento e, se houver sulfeto ou vazamento de licor, drenagem ácida que carrega metal para o córrego."],
+      ["Topsoil","O solo orgânico é raspado e guardado em pilha baixa, para microrganismo e semente não morrerem compactados."],
+      ["Retalude","Banco exaurido volta com inclinação estável e superfície rugosa. Encosta lisa não segura muda."],
+      ["Nativas","Espécies do ecossistema local, acompanhadas por anos. Gramado genérico não devolve a mata."],
+      ["Ácido e tório","Corrige-se pH antes de plantar. Rejeito radioativo não entra no canteiro."]
+    ]
   },
-  barragem: {
-    kicker:"Água e estrutura", title:"Barragem vigiada e água em circuito", icon:"fa-solid fa-water", bar:"#2ad4ff",
-    lead:"O rejeito úmido atrás de um dique é o ponto mais sensível. A engenharia atual tira água desse depósito e devolve a água tratada ao processo.",
-    facts:[["O que se vigia","Piezômetros medem a pressão da água dentro do maciço. Radar de solo no talude e radar de satélite acusam deslocamento de milímetros. O painel não ensina a erguer barragem."],["Filtro prensa","Espessador e filtro prensa entregam uma torta bem mais seca. Menos lama saturada significa menor barragem de rejeito úmido e menor consequência se o controle falhar."],["Circuito","Clarificação e tratamento devolvem a água à planta. A meta é repor só a perda."],["Por que não é 100% eterno","Evaporação, umidade que sai na torta e poeira molhada exigem água nova. Fechar o circuito é deixar de captar um rio inteiro todo dia, não prometer zero reposição."]]
+  vantagem: {
+    kicker:"Por que compensa", title:"Custo, mercado e licença", icon:"fa-solid fa-scale-balanced", bar:"#2ad4ff",
+    lead:"Sustentabilidade bem feita corta desperdício. Ela não garante licença rápida nem preço alto.",
+    facts:[
+      ["Água","Circuito fechado repõe evaporação e umidade da torta, em vez de captar o rio inteiro todo dia. A conta de captação e de conflito cai. “100% para sempre” não fecha o balanço hídrico."],
+      ["Minério rastreável","Comprador de ímã e de carro pergunta a origem. Operação com barragem vigiada e rejeito classificado entra na lista. Operação opaca sai."],
+      ["Licença","Estudo sério e comunidade ouvida reduzem embargo e judicialização. Não existe atalho automático no órgão ambiental."],
+      ["O prejuízo evitado","Multa, mina parada e barragem refeita custam mais do que o filtro prensa custou."]
+    ]
   },
-  rejeito: {
-    kicker:"Dois destinos", title:"Estéril útil e rejeito que fica isolado", icon:"fa-solid fa-recycle", bar:"#d4b896",
-    lead:"Estéril de capa e rejeito da planta química não são o mesmo material. Um pode virar insumo. O outro pode carregar tório.",
-    facts:[["Laudo primeiro","Caracterização química e radiológica vem antes de qualquer reúso. Sem isso, não há tijolo."],["Estéril inerte","Rocha sem metal móvel e sem radionuclídeo acima do limite, dentro da norma, entra como agregado, lastro ou preenchimento."],["Tório","A fração da monazita permanece em depósito com controle radiológico. Espalhá-la em bloco de obra espalharia a dose."],["Ganho","Cada tonelada realmente reusada é uma a menos na barragem e uma a menos tirada de outra jazida."]]
-  },
-  drones: {
-    kicker:"Tecnologia de vigilância", title:"IoT, drone e satélite", icon:"fa-solid fa-satellite", bar:"#7ee7ff",
-    lead:"O terreno e a mata mudam devagar demais para o olho e depressa demais para uma visita por ano. Instrumento preenche o intervalo.",
-    facts:[["Drones","Fotogrametria mede volume de pilha e erosão. Câmera multiespectral indica se o replantio está vivo, por índices como o NDVI."],["Sensores","Piezômetros, vazão, pH e turbidez enviam alerta quando a barragem ou o efluente saem da faixa."],["InSAR","O radar orbital compara imagens e acusa deslocamento do terreno na escala do centímetro ou menos, mesmo com nuvem."],["Limite","Sensor sem equipe e sem plano de emergência é só um número num painel. O dado serve para mandar gente ao ponto certo, antes do acidente."]]
+  economia: {
+    kicker:"Valor, não milagre", title:"Onde o lucro realmente aparece", icon:"fa-solid fa-chart-line", bar:"#d4b896",
+    lead:"Pureza e energia eficiente aumentam a margem. Não a tornam exponencial. O preço do óxido sobe e desce com a tecnologia e com poucas plantas de separação no mundo.",
+    facts:[
+      ["Da rocha ao óxido","O concentrado misto vale pouco por quilo. O óxido de um elemento só, na especificação do ímã, vale ordens de grandeza a mais. É aí que está o salto — e também o investimento da cascata de solvente."],
+      ["Energia","Moinho, eletrólise e frota são custo fixo disfarçado. Empilhadeira elétrica no pátio e caminhão autônomo na cava cortam diesel e retrabalho. Não multiplicam o preço do neodímio."],
+      ["Quem compra","Motor de carro (cerca de 1 a 2 kg de ímã), turbina de acionamento direto (centenas de quilos) e catalisador de cério e lantânio, que em massa ainda é uma fatia enorme da série."],
+      ["Feira honesta","Dizer “lucro exponencial” sem ciclo de preço é propaganda. Dizer “o valor mora na separação, e a separação mora em poucas fábricas” é o fato."]
+    ]
   }
 };
 
