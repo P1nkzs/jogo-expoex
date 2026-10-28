@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mina de Terras Raras — O Ouro do Século XXI</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          earth: { 50:'#f6efe4', 100:'#ead9c4', 200:'#d4b896', 300:'#b8895a', 400:'#8a5a32', 500:'#5c3a22', 600:'#3d2616', 700:'#24160c' },
+          neon: { 300:'#7ee7ff', 400:'#2ad4ff', 500:'#00b4e6' },
+          steel: { 200:'#c5ccd4', 400:'#7d8896', 700:'#3a4450', 900:'#1b222b' }
+        },
+        fontFamily: { display: ['"Segoe UI"', 'system-ui', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #1a120c; color: #f6efe4; }
+  .hotspot, .info-card { cursor: pointer; transition: transform .25s ease, filter .25s ease, border-color .25s ease; }
+  .hotspot:hover, .info-card:hover { transform: translateY(-4px); filter: brightness(1.08); }
+  .hotspot:focus-visible, .info-card:focus-visible, .nav-btn:focus-visible { outline: 2px solid #2ad4ff; outline-offset: 3px; }
+  .pulse-ring { animation: pulse 2.2s ease-out infinite; }
+  @keyframes pulse {
+    0% { transform: scale(.85); opacity: .9; }
+    100% { transform: scale(1.7); opacity: 0; }
+  }
+  @keyframes truck {
+    0% { transform: translateX(0); }
+    45% { transform: translateX(18px); }
+    55% { transform: translateX(18px); }
+    100% { transform: translateX(0); }
+  }
+  .truck-move { animation: truck 7s ease-in-out infinite; }
+  @keyframes belt {
+    from { background-position: 0 0; }
+    to { background-position: 28px 0; }
+  }
+  .belt { background-image: repeating-linear-gradient(90deg, #3a4450 0 10px, #5c6773 10px 14px); animation: belt 1.1s linear infinite; }
+  @keyframes dust {
+    0% { opacity: .15; transform: translateY(0); }
+    50% { opacity: .45; }
+    100% { opacity: .15; transform: translateY(-6px); }
+  }
+  .dust { animation: dust 3.4s ease-in-out infinite; }
+  .modal-in { animation: pop .28s ease-out; }
+  @keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+  .screen { display: none; }
+  .screen.active { display: block; animation: rise .45s ease both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .step-on { border-color: #2ad4ff; background: rgba(42, 212, 255, .08); }
+  .flow-dot { animation: flow 2.8s linear infinite; }
+  @keyframes flow { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
+</style>
+</head>
+<body class="font-display antialiased">
+
+<header class="sticky top-0 z-40 border-b border-earth-400/30 bg-[#1a120c]/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+    <button type="button" data-screen="mina" class="nav-btn text-left">
+      <p class="text-[10px] uppercase tracking-[.22em] text-neon-300">Painel didático</p>
+      <p class="text-sm font-semibold text-earth-50">Mina de Terras Raras</p>
+    </button>
+    <nav class="flex rounded-lg border border-steel-700 bg-steel-900 p-1 text-sm" aria-label="Telas">
+      <button type="button" data-screen="mina" id="tab-mina" class="nav-btn rounded-md px-3 py-1.5 font-medium">
+        <i class="fa-solid fa-mountain-sun mr-1"></i> Mina
+      </button>
+      <button type="button" data-screen="planta" id="tab-planta" class="nav-btn rounded-md px-3 py-1.5 font-medium text-steel-200">
+        <i class="fa-solid fa-flask mr-1"></i> Processamento
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="screen-mina" class="screen active">
+    <div class="relative overflow-hidden border-b border-earth-400/30">
+      <div class="absolute inset-0 bg-gradient-to-br from-earth-700 via-[#2a1a10] to-steel-900"></div>
+      <div class="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-neon-500/10 blur-3xl"></div>
+      <div class="relative mx-auto max-w-6xl px-5 py-10 md:py-14">
+        <p class="mb-3 inline-flex items-center gap-2 rounded-full border border-neon-400/40 bg-neon-500/10 px-3 py-1 text-xs uppercase tracking-[.18em] text-neon-300">
+          <i class="fa-solid fa-atom"></i> Feira de ciências · tela 1 de 2
+        </p>
+        <h1 class="max-w-3xl text-3xl font-semibold leading-tight text-earth-50 md:text-5xl">
+          Cava a céu aberto<br />
+          <span class="text-neon-300">o ouro do século XXI</span>
+        </h1>
+        <p class="mt-4 max-w-2xl text-sm leading-relaxed text-earth-100 md:text-base">
+          Terras raras são 17 metais: escândio, ítrio e os 15 lantanídeos, do lantânio ao lutécio.
+          Vários não são raros na crosta. O difícil é achá-los concentrados e separá-los, porque suas químicas são quase idênticas.
+          Sem eles, ímãs de motores, telas e muitas turbinas eólicas não existem na forma atual.
+        </p>
+        <button type="button" data-screen="planta" class="nav-btn mt-6 inline-flex items-center gap-2 rounded-lg bg-neon-400 px-4 py-2.5 text-sm font-semibold text-steel-900 hover:bg-neon-300">
+          Explorar Processamento e Produtos <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-6xl px-5 py-8">
+      <div class="mb-4 flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-semibold">A mina</h2>
+          <p class="text-sm text-earth-200">Clique nas máquinas e nas pilhas. Cada ponto azul abre uma ficha.</p>
+        </div>
+        <p class="text-xs uppercase tracking-widest text-steel-200">cenário estilizado · não é foto real</p>
+      </div>
+
+      <div class="relative overflow-hidden rounded-2xl border border-earth-400/40 bg-gradient-to-b from-[#6b4a30] via-[#4a3220] to-[#24160c] shadow-2xl">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#c4a882]/40 to-transparent"></div>
+        <svg class="pointer-events-none absolute inset-0 h-full w-full opacity-40" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 90 L180 140 L340 70 L520 150 L700 80 L860 160 L1000 100 V520 H0 Z" fill="#3d2616"/>
+          <path d="M40 180 L220 230 L400 160 L620 250 L820 190 L1000 240 V520 H0 Z" fill="#2c1a10" opacity=".7"/>
+        </svg>
+        <div class="relative grid min-h-[620px] grid-cols-1 gap-4 p-4 md:grid-cols-12 md:p-6">
+          <button type="button" data-id="escavadeira" class="hotspot group relative flex flex-col justify-end rounded-xl bg-earth-600/50 p-3 text-left md:col-span-4 md:row-span-2">
+            <span class="absolute left-3 top-3 z-10 flex items-center gap-2 text-xs font-medium text-neon-300">
+              <span class="relative flex h-3 w-3"><span class="pulse-ring absolute inline-flex h-full w-full rounded-full bg-neon-400"></span><span class="relative inline-flex h-3 w-3 rounded-full bg-neon-400"></span></span>
+              Escavadeira
+            </span>
+            <svg viewBox="0 0 280 180" class="mx-auto h-40 w-full max-w-xs" aria-hidden="true">
+              <ellipse cx="140" cy="160" rx="90" ry="10" fill="#000" opacity=".35"/>
+              <rect x="70" y="118" width="130" height="36" rx="6" fill="#3a4450"/>
+              <rect x="78" y="108" width="70" height="22" rx="4" fill="#5c6773"/>
+              <rect x="150" y="112" width="28" height="16" rx="2" fill="#7ee7ff" opacity=".85"/>
+              <rect x="88" y="148" width="28" height="14" rx="3" fill="#1b222b"/>
+              <rect x="150" y="148" width="28" height="14" rx="3" fill="#1b222b"/>
+              <path d="M168 118 L210 70 L228 78 L190 128" fill="#7d8896"/>
+              <path d="M214 62 L250 40 L258 52 L226 78" fill="#c5ccd4"/>
+              <path d="M246 36 L270 58 L250 70 L236 48" fill="#8a5a32"/>
+            </svg>
+            <p class="text-center text-[11px] text-earth-100">Cava a rocha e carrega o minério bruto</p>
+          </button>
+
+          <button type="button" data-id="caminhao" class="hotspot truck-move relative rounded-xl bg-earth-500/30 p-3 text-left md:col-span-5">
+            <span class="absolute left-3 top-3 z-10 flex items-center gap-2 text-xs font-medium text-neon-300">
+              <span class="relative flex h-3 w-3"><span class="pulse-ring absolute inline-flex h-full w-full rounded-full bg-neon-400"></span><span class="relative inline-flex h-3 w-3 rounded-full bg-neon-400"></span></span>
+              Caminhão de carga
+            </span>
+            <svg viewBox="0 0 340 150" class="mt-4 h-28 w-full" aria-hidden="true">
+              <ellipse cx="170" cy="132" rx="140" ry="8" fill="#000" opacity=".3"/>
+              <path d="M20 95 L40 55 L150 48 L175 95 Z" fill="#5c3a22"/>
+              <path d="M40 55 L150 48 L148 62 L48 68 Z" fill="#8a5a32"/>
+              <rect x="168" y="62" width="120" height="38" rx="4" fill="#3a4450"/>
+              <rect x="250" y="70" width="28" height="18" rx="2" fill="#7ee7ff" opacity=".8"/>
+              <circle cx="70" cy="108" r="16" fill="#1b222b"/><circle cx="70" cy="108" r="7" fill="#7d8896"/>
+              <circle cx="130" cy="108" r="16" fill="#1b222b"/><circle cx="130" cy="108" r="7" fill="#7d8896"/>
+              <circle cx="230" cy="108" r="16" fill="#1b222b"/><circle cx="230" cy="108" r="7" fill="#7d8896"/>
+              <circle cx="275" cy="108" r="16" fill="#1b222b"/><circle cx="275" cy="108" r="7" fill="#7d8896"/>
+            </svg>
+            <p class="text-center text-[11px] text-earth-100">Haul truck · logística pesada da cava</p>
+          </button>
+
+          <button type="button" data-id="torre" class="hotspot relative flex flex-col justify-between rounded-xl border border-neon-400/20 bg-steel-900/70 p-3 text-left md:col-span-3 md:row-span-2">
+            <span class="flex items-center gap-2 text-xs font-medium text-neon-300">
+              <span class="relative flex h-3 w-3"><span class="pulse-ring absolute inline-flex h-full w-full rounded-full bg-neon-400"></span><span class="relative inline-flex h-3 w-3 rounded-full bg-neon-400"></span></span>
+              Torre de separação
+            </span>
+            <svg viewBox="0 0 160 220" class="mx-auto h-44" aria-hidden="true">
+              <rect x="55" y="20" width="50" height="170" rx="4" fill="#3a4450"/>
+              <rect x="62" y="36" width="36" height="18" rx="2" fill="#2ad4ff" opacity=".7"/>
+              <rect x="62" y="64" width="36" height="18" rx="2" fill="#7ee7ff" opacity=".45"/>
+              <rect x="62" y="92" width="36" height="18" rx="2" fill="#d4b896"/>
+              <rect x="62" y="120" width="36" height="18" rx="2" fill="#b8895a"/>
+              <rect x="62" y="148" width="36" height="18" rx="2" fill="#8a5a32"/>
+              <path d="M30 70 H55 M105 100 H130 M30 140 H55" stroke="#7ee7ff" stroke-width="3"/>
+              <circle cx="22" cy="70" r="6" fill="#2ad4ff"/>
+              <circle cx="138" cy="100" r="6" fill="#ead9c4"/>
+              <circle cx="22" cy="140" r="6" fill="#8a5a32"/>
+            </svg>
+            <p class="text-center text-[11px] text-steel-200">Britagem, lixiviação e solvente</p>
+          </button>
+
+          <div class="flex flex-col justify-end gap-2 md:col-span-5">
+            <p class="text-[11px] uppercase tracking-widest text-earth-100">Esteira transportadora</p>
+            <div class="belt h-8 rounded-md border border-steel-700 shadow-inner"></div>
+            <div class="flex gap-2">
+              <button type="button" data-id="neodimio" class="hotspot flex-1 rounded-lg bg-gradient-to-b from-earth-200 to-earth-400 p-2 text-left text-earth-700 shadow">
+                <span class="block text-[10px] font-bold"><i class="fa-solid fa-circle-dot"></i> Nd</span>
+                <span class="text-xs font-semibold">Neodímio</span>
+              </button>
+              <button type="button" data-id="disprosio" class="hotspot flex-1 rounded-lg bg-gradient-to-b from-[#efe6c9] to-[#a6843c] p-2 text-left text-earth-700 shadow">
+                <span class="block text-[10px] font-bold"><i class="fa-solid fa-circle-dot"></i> Dy</span>
+                <span class="text-xs font-semibold">Disprósio</span>
+              </button>
+              <button type="button" data-id="lantanio" class="hotspot flex-1 rounded-lg bg-gradient-to-b from-earth-100 to-earth-300 p-2 text-left text-earth-700 shadow">
+                <span class="block text-[10px] font-bold"><i class="fa-solid fa-circle-dot"></i> La</span>
+                <span class="text-xs font-semibold">Lantânio</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-3 sm:grid-cols-3 md:col-span-12">
+            <button type="button" data-id="pilha-neo" class="hotspot relative h-28 overflow-hidden rounded-xl bg-earth-500/40 text-left">
+              <span class="absolute left-2 top-2 text-[11px] text-neon-300"><i class="fa-solid fa-layer-group"></i> Pilha · bastnasita</span>
+              <span class="absolute bottom-3 left-3 right-3">
+                <span class="mb-1 block h-5 rounded-full bg-earth-300/90"></span>
+                <span class="mb-1 ml-3 block h-5 w-[80%] rounded-full bg-earth-200"></span>
+                <span class="ml-6 block h-4 w-[55%] rounded-full bg-earth-100"></span>
+              </span>
+            </button>
+            <button type="button" data-id="litio" class="hotspot relative h-28 overflow-hidden rounded-xl bg-[#3d4a38]/50 text-left">
+              <span class="absolute left-2 top-2 text-[11px] text-neon-300"><i class="fa-solid fa-layer-group"></i> Pilha · lítio</span>
+              <span class="absolute bottom-3 left-4 right-4">
+                <span class="mb-1 block h-6 rounded-sm bg-[#9aa56a]"></span>
+                <span class="ml-2 block h-5 w-[70%] rounded-sm bg-[#c5d09a]"></span>
+              </span>
+            </button>
+            <button type="button" data-id="torio" class="hotspot relative h-28 overflow-hidden rounded-xl bg-earth-600/50 text-left">
+              <span class="absolute left-2 top-2 text-[11px] text-neon-300"><i class="fa-solid fa-layer-group"></i> Pilha · monazita</span>
+              <span class="absolute bottom-3 left-3 right-3">
+                <span class="mb-1 block h-5 rounded-full bg-[#6b5344]"></span>
+                <span class="mb-1 ml-4 block h-5 w-[75%] rounded-full bg-[#8d6e5c]"></span>
+                <span class="ml-8 block h-4 w-[45%] rounded-full bg-earth-200"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <p class="dust pointer-events-none absolute bottom-2 left-6 text-[10px] uppercase tracking-[.25em] text-earth-100/70">poeira · brita · minério de baixo teor</p>
+      </div>
+
+      <div class="mt-6 grid gap-3 sm:grid-cols-3">
+        <article class="rounded-xl border border-earth-400/30 bg-earth-600/40 p-4">
+          <i class="fa-solid fa-flask text-neon-300"></i>
+          <h3 class="mt-2 text-sm font-semibold">Não são “terras”</h3>
+          <p class="mt-1 text-xs leading-relaxed text-earth-100">O nome vem de óxidos que os químicos do século XIX chamavam de terras. Hoje sabemos que são metais.</p>
+        </article>
+        <article class="rounded-xl border border-earth-400/30 bg-earth-600/40 p-4">
+          <i class="fa-solid fa-industry text-neon-300"></i>
+          <h3 class="mt-2 text-sm font-semibold">Teor baixíssimo</h3>
+          <p class="mt-1 text-xs leading-relaxed text-earth-100">É comum moer mais de uma tonelada de rocha para obter poucos quilos de óxido separado.</p>
+        </article>
+        <article class="rounded-xl border border-earth-400/30 bg-earth-600/40 p-4">
+          <i class="fa-solid fa-leaf text-neon-300"></i>
+          <h3 class="mt-2 text-sm font-semibold">O preço invisível</h3>
+          <p class="mt-1 text-xs leading-relaxed text-earth-100">Ácidos, rejeitos e, na monazita, radioatividade natural exigem controle rigoroso.</p>
+        </article>
+      </div>
+
+      <div class="mt-8 flex justify-center pb-4">
+        <button type="button" data-screen="planta" class="nav-btn inline-flex items-center gap-2 rounded-xl border border-neon-400/50 bg-neon-500/10 px-5 py-3 text-sm font-semibold text-neon-300 hover:bg-neon-500/20">
+          <i class="fa-solid fa-flask"></i> Explorar Processamento e Produtos
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-planta" class="screen">
+    <div class="border-b border-neon-400/20 bg-gradient-to-br from-steel-900 via-[#152028] to-earth-700">
+      <div class="mx-auto max-w-6xl px-5 py-10">
+        <button type="button" data-screen="mina" class="nav-btn mb-4 inline-flex items-center gap-2 text-sm text-neon-300 hover:text-white">
+          <i class="fa-solid fa-arrow-left"></i> Retornar à Mina
+        </button>
+        <p class="text-xs uppercase tracking-[.18em] text-neon-300">Tela 2 de 2 · planta química</p>
+        <h1 class="mt-2 max-w-3xl text-3xl font-semibold text-earth-50 md:text-4xl">Centro de processamento e aplicações</h1>
+        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-earth-100">
+          Da pilha marrom sai um pó. Desse pó sai uma solução. Só depois de centenas de contatos com solvente é que cada lantanídeo vira um produto com nome e preço.
+        </p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-6xl px-5 py-8">
+      <h2 class="text-lg font-semibold">O processo químico</h2>
+      <p class="mt-1 max-w-3xl text-sm text-earth-200">Toque uma etapa. A faixa mostra a ordem real: não existe um forno único que “separa as terras raras”.</p>
+
+      <div class="mt-4 grid gap-3 md:grid-cols-4">
+        <button type="button" data-id="etapa-brita" class="info-card step rounded-xl border border-steel-700 bg-steel-900/80 p-4 text-left">
+          <p class="text-[11px] text-neon-300">01</p>
+          <i class="fa-solid fa-hammer mt-2 text-earth-200"></i>
+          <h3 class="mt-2 text-sm font-semibold">Britar e moer</h3>
+          <p class="mt-1 text-xs text-steel-200">A rocha vira pó para liberar bastnasita ou monazita.</p>
+        </button>
+        <button type="button" data-id="etapa-concentra" class="info-card step rounded-xl border border-steel-700 bg-steel-900/80 p-4 text-left">
+          <p class="text-[11px] text-neon-300">02</p>
+          <i class="fa-solid fa-filter mt-2 text-earth-200"></i>
+          <h3 class="mt-2 text-sm font-semibold">Concentrar</h3>
+          <p class="mt-1 text-xs text-steel-200">Flotação ou ímã descarta a maior parte da ganga.</p>
+        </button>
+        <button type="button" data-id="etapa-lixivia" class="info-card step rounded-xl border border-steel-700 bg-steel-900/80 p-4 text-left">
+          <p class="text-[11px] text-neon-300">03</p>
+          <i class="fa-solid fa-vial mt-2 text-earth-200"></i>
+          <h3 class="mt-2 text-sm font-semibold">Lixiviar</h3>
+          <p class="mt-1 text-xs text-steel-200">Ácido ou base dissolve os metais para uma solução.</p>
+        </button>
+        <button type="button" data-id="etapa-solvente" class="info-card step step-on rounded-xl border border-steel-700 bg-steel-900/80 p-4 text-left">
+          <p class="text-[11px] text-neon-300">04</p>
+          <i class="fa-solid fa-flask-vial mt-2 text-neon-300"></i>
+          <h3 class="mt-2 text-sm font-semibold">Solvente</h3>
+          <p class="mt-1 text-xs text-steel-200">Dezenas ou centenas de estágios separam íons gêmeos.</p>
+        </button>
+      </div>
+
+      <div id="etapa-painel" class="mt-4 rounded-2xl border border-neon-400/30 bg-[#141c22] p-5">
+        <p id="etapa-kicker" class="text-[11px] uppercase tracking-[.16em] text-neon-300">Extração por solvente</p>
+        <h3 id="etapa-title" class="mt-1 text-xl font-semibold">Por que a separação é tão longa</h3>
+        <p id="etapa-body" class="mt-2 text-sm leading-relaxed text-earth-100">
+          Os lantanídeos formam íons 3+ quase do mesmo tamanho. Um único contato com o solvente orgânico quase não os distingue.
+          A planta repete a troca entre a fase aquosa e a fase orgânica em cascata, como uma destilação, até cada fração ficar pura o bastante para virar óxido.
+        </p>
+      </div>
+
+      <button type="button" data-id="torio-planta" class="info-card mt-4 flex w-full items-start gap-4 rounded-2xl border border-earth-300/30 bg-earth-600/50 p-5 text-left">
+        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-earth-700 text-xl text-neon-300">
+          <i class="fa-solid fa-radiation"></i>
+        </span>
+        <span>
+          <span class="text-[11px] uppercase tracking-widest text-neon-300">Desafio crítico</span>
+          <span class="mt-1 block text-base font-semibold">Tório radioativo na monazita</span>
+          <span class="mt-1 block text-sm leading-relaxed text-earth-100">O tório não é terra rara. Ele viaja no mineral. Ao concentrar neodímio, a usina também concentra um metal radioativo. Toque para ver por que o rejeito não é entulho comum.</span>
+        </span>
+      </button>
+
+      <h2 class="mt-10 text-lg font-semibold">Produtos finais de alta tecnologia</h2>
+      <p class="mt-1 text-sm text-earth-200">O metal separado vira peça. Toque um card.</p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <button type="button" data-id="ima" class="info-card rounded-2xl border border-steel-700 bg-gradient-to-br from-steel-900 to-earth-700 p-5 text-left">
+          <i class="fa-solid fa-magnet text-2xl text-neon-300"></i>
+          <h3 class="mt-3 font-semibold">Ímã de neodímio</h3>
+          <p class="mt-1 text-xs leading-relaxed text-steel-200">NdFeB: o ímã permanente mais forte em uso comercial. Cabe num fone e também num motor de carro.</p>
+        </button>
+        <button type="button" data-id="ev" class="info-card rounded-2xl border border-steel-700 bg-gradient-to-br from-steel-900 to-earth-700 p-5 text-left">
+          <i class="fa-solid fa-car-side text-2xl text-neon-300"></i>
+          <h3 class="mt-3 font-semibold">Motor de carro elétrico</h3>
+          <p class="mt-1 text-xs leading-relaxed text-steel-200">Ímãs no rotor entregam torque alto num volume pequeno. Disprósio segura a força quando esquenta.</p>
+        </button>
+        <button type="button" data-id="eolica" class="info-card rounded-2xl border border-steel-700 bg-gradient-to-br from-steel-900 to-earth-700 p-5 text-left">
+          <i class="fa-solid fa-wind text-2xl text-neon-300"></i>
+          <h3 class="mt-3 font-semibold">Turbina eólica</h3>
+          <p class="mt-1 text-xs leading-relaxed text-steel-200">Geradores de acionamento direto usam centenas de quilos de ímãs NdFeB por máquina.</p>
+        </button>
+        <button type="button" data-id="phone" class="info-card rounded-2xl border border-steel-700 bg-gradient-to-br from-steel-900 to-earth-700 p-5 text-left">
+          <i class="fa-solid fa-mobile-screen text-2xl text-neon-300"></i>
+          <h3 class="mt-3 font-semibold">Smartphone</h3>
+          <p class="mt-1 text-xs leading-relaxed text-steel-200">Alto-falante, vibração e foco da câmera usam ímãs minúsculos. A tela ainda leva outros elementos.</p>
+        </button>
+        <button type="button" data-id="lente" class="info-card rounded-2xl border border-steel-700 bg-gradient-to-br from-steel-900 to-earth-700 p-5 text-left">
+          <i class="fa-solid fa-camera text-2xl text-neon-300"></i>
+          <h3 class="mt-3 font-semibold">Vidro e lente</h3>
+          <p class="mt-1 text-xs leading-relaxed text-steel-200">Lantânio sobe o índice de refração. Óculos, câmeras e polimento de vidro dependem disso.</p>
+        </button>
+        <button type="button" data-id="catalisador" class="info-card rounded-2xl border border-steel-700 bg-gradient-to-br from-steel-900 to-earth-700 p-5 text-left">
+          <i class="fa-solid fa-oil-can text-2xl text-neon-300"></i>
+          <h3 class="mt-3 font-semibold">Catalisador</h3>
+          <p class="mt-1 text-xs leading-relaxed text-steel-200">Cério e lantânio entram no refino de petróleo e no catalisador de escapamento.</p>
+        </button>
+      </div>
+
+      <div class="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-steel-700 pt-6 pb-6">
+        <p class="text-xs text-steel-200">Números de capacidade são ordens de grandeza, não de um modelo específico.</p>
+        <button type="button" data-screen="mina" class="nav-btn inline-flex items-center gap-2 rounded-lg bg-earth-300 px-4 py-2 text-sm font-semibold text-earth-700 hover:bg-earth-200">
+          <i class="fa-solid fa-mountain-sun"></i> Retornar à Mina
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="overlay" class="fixed inset-0 z-50 hidden items-end justify-center bg-black/70 p-3 sm:items-center" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-in max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-neon-400/30 bg-[#1c1612] shadow-2xl">
+    <div id="modal-bar" class="h-1.5 w-full bg-neon-400"></div>
+    <div class="p-5">
+      <div class="mb-3 flex items-start justify-between gap-3">
+        <div>
+          <p id="modal-kicker" class="text-[11px] uppercase tracking-[.18em] text-neon-300"></p>
+          <h3 id="modal-title" class="text-xl font-semibold text-earth-50"></h3>
+        </div>
+        <button type="button" id="close" class="rounded-md border border-steel-700 px-2 py-1 text-steel-200 hover:text-white" aria-label="Fechar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="modal-visual" class="mb-4 flex h-24 items-center justify-center rounded-xl bg-earth-700/80 text-4xl"></div>
+      <p id="modal-lead" class="text-sm leading-relaxed text-earth-100"></p>
+      <dl id="modal-facts" class="mt-4 space-y-2 text-sm"></dl>
+    </div>
+  </div>
+</div>
+
+<script>
+const FICHAS = {
+  escavadeira: {
+    kicker: "Máquina de escavação",
+    title: "Escavadeira hidráulica de mina",
+    icon: "fa-solid fa-tractor",
+    bar: "#2ad4ff",
+    lead: "Ela rasga a rocha já desmontada por explosivos controlados e enche a caçamba do caminhão em poucos ciclos.",
+    facts: [
+      ["O que faz", "Escava, seleciona blocos e carrega minério ou estéril — a rocha sem valor, que vai para a pilha de rejeito de lavra."],
+      ["Porte", "Modelos de mina passam de 300 toneladas e caçambas de dezenas de metros cúbicos. Uma pá leva o volume de uma sala pequena."],
+      ["Por que importa", "Terras raras vêm diluídas. A escavadeira move muita rocha para pouca massa útil."]
+    ]
+  },
+  caminhao: {
+    kicker: "Haul truck · logística",
+    title: "Caminhão de carga fora de estrada",
+    icon: "fa-solid fa-truck-monster",
+    bar: "#7ee7ff",
+    lead: "Não roda em rua. Vive na cava, subindo rampas com centenas de toneladas até o britador.",
+    facts: [
+      ["Capacidade", "Os maiores ultrapassam 300–400 toneladas por viagem. Quase tudo isso ainda é rocha, não metal puro."],
+      ["Combustível", "Diesel em escala industrial: centenas de litros por hora em subida carregada. Minas estudam frota elétrica e trólebus."],
+      ["Papel", "É o elo entre a frente de lavra e a planta. Se a frota para, a torre fica sem alimento."]
+    ]
+  },
+  torre: {
+    kicker: "Planta de beneficiamento",
+    title: "Britagem e separação química",
+    icon: "fa-solid fa-industry",
+    bar: "#2ad4ff",
+    lead: "A torre resume uma usina. O minério vira pó, depois solução, depois óxidos separados.",
+    facts: [
+      ["Triturar", "Britadores e moinhos liberam os grãos de bastnasita ou monazita."],
+      ["Concentrar", "Flotação ou separação magnética sobe o teor e descarta a ganga."],
+      ["Dissolver", "Ácidos ou bases levam os metais para a solução. É a lixiviação."],
+      ["Separar", "Extração por solvente repete o contato líquido-líquido muitas vezes. Os íons são quimicamente gêmeos."],
+      ["Alerta", "A química gera efluentes ácidos e, com monazita, rejeitos com tório. Abra a tela de processamento para ver o fluxo."]
+    ]
+  },
+  neodimio: {
+    kicker: "Lantanídeo · Z = 60",
+    title: "Neodímio (Nd)",
+    icon: "fa-solid fa-magnet",
+    bar: "#d4b896",
+    lead: "O metal por trás dos ímãs mais fortes do cotidiano. Um pouco de neodímio muda um motor inteiro.",
+    facts: [
+      ["Química", "Metal prateado. Nos minérios aparece como íon Nd³⁺. Número atômico 60."],
+      ["Tecnologia", "Ímãs NdFeB estão em motores elétricos, fones, HDs e geradores de várias turbinas de acionamento direto."],
+      ["Extração", "Sai da bastnasita. Separá-lo do praseodímio exige longas baterias de solvente e deixa rejeitos ácidos."]
+    ]
+  },
+  disprosio: {
+    kicker: "Lantanídeo pesado · Z = 66",
+    title: "Disprósio (Dy)",
+    icon: "fa-solid fa-temperature-high",
+    bar: "#c4a35a",
+    lead: "Entra em dose pequena no ímã de neodímio para ele não perder força quando o motor esquenta.",
+    facts: [
+      ["Química", "Lantanídeo pesado, íon Dy³⁺, número atômico 66. Bem mais escasso que o neodímio."],
+      ["Tecnologia", "Aditivo térmico. Sem ele, o ímã enfraquece em faixa típica de cerca de 80–150 °C, conforme a liga."],
+      ["Extração", "Pouco metal por tonelada e separação ainda mais longa. O custo ambiental por quilo é alto."]
+    ]
+  },
+  lantanio: {
+    kicker: "Primeiro lantanídeo · Z = 57",
+    title: "Lantânio (La)",
+    icon: "fa-solid fa-camera",
+    bar: "#ead9c4",
+    lead: "Menos famoso que o neodímio, mas está em lentes, catalisadores e baterias de níquel-hidreto metálico.",
+    facts: [
+      ["Química", "Número atômico 57. Dá nome à série dos lantanídeos."],
+      ["Tecnologia", "Vidros de alto índice de refração, refino de petróleo e o ânodo de baterias NiMH."],
+      ["Extração", "Abundante nas terras raras leves, mas só vira produto depois da mesma maratona de solventes."]
+    ]
+  },
+  "pilha-neo": {
+    kicker: "Minério · carbonato-fluoreto",
+    title: "Pilha de bastnasita",
+    icon: "fa-solid fa-mound",
+    bar: "#b8895a",
+    lead: "Um dos principais minérios de terras raras leves: cério, lantânio, neodímio e praseodímio.",
+    facts: [
+      ["O que você vê", "Não é neodímio puro. É rocha em que os metais estão presos no mineral, em teor baixo."],
+      ["Fórmula típica", "(Ce,La,Nd)CO₃F — vários metais no mesmo cristal. A separação química é obrigatória."],
+      ["Desafio", "Para cada tonelada de óxido vendável, a cava move um volume muito maior de estéril."]
+    ]
+  },
+  litio: {
+    kicker: "Não é terra rara · metal alcalino",
+    title: "Lítio (Li) — pilha à parte",
+    icon: "fa-solid fa-car-battery",
+    bar: "#b7c48a",
+    lead: "O lítio não pertence às 17 terras raras. Está aqui porque a feira quase sempre confunde os dois.",
+    facts: [
+      ["Química", "Metal alcalino, número atômico 3, o mais leve. O íon Li⁺ guarda carga com facilidade."],
+      ["Tecnologia", "Baterias de íons de lítio. No carro elétrico, o neodímio vai no motor e o lítio na bateria."],
+      ["Origem", "Salmouras ou espodumênio. Evaporar salares ou atacar o mineral com calor e ácido gasta água e energia."]
+    ]
+  },
+  torio: {
+    kicker: "Acompanhante da monazita · não é terra rara",
+    title: "Tório na monazita",
+    icon: "fa-solid fa-radiation",
+    bar: "#8d6e5c",
+    lead: "Metal radioativo que viaja dentro da monazita, junto de cério, lantânio e neodímio.",
+    facts: [
+      ["Química", "Actinídeo, número atômico 90. O Th-232 decai muito devagar, meia-vida de cerca de 14 bilhões de anos, mas a cadeia emite radiação que a usina precisa gerir."],
+      ["Na pilha", "Concentrar monazita também concentra tório e um pouco de urânio. O rejeito entra em controle radiológico."],
+      ["Risco real", "O uso comercial dominante não é reator. O passivo é poeira, água ácida e rejeito que exige barreira e fechamento de mina planejado."]
+    ]
+  },
+  "etapa-brita": {
+    kicker: "Etapa 01",
+    title: "Britagem e moagem",
+    icon: "fa-solid fa-hammer",
+    bar: "#c5ccd4",
+    lead: "Nada se separa enquanto o mineral útil estiver trancado dentro do bloco.",
+    facts: [
+      ["Como", "Britador de mandíbula, cone e moinho de bolas reduzem a rocha até dezenas de micrômetros."],
+      ["Por quê", "Cada grão de bastnasita ou monazita precisa ficar livre da ganga para a flotação funcionar."],
+      ["Custo", "Moer é uma das etapas que mais gastam eletricidade na mina."]
+    ]
+  },
+  "etapa-concentra": {
+    kicker: "Etapa 02",
+    title: "Concentração física",
+    icon: "fa-solid fa-filter",
+    bar: "#d4b896",
+    lead: "Antes da química cara, a usina joga fora o que der para tirar só com física.",
+    facts: [
+      ["Flotação", "Bolhas carregam o mineral molhado por reagentes. A ganga afunda."],
+      ["Magnética", "Alguns minerais de terra rara respondem a campos intensos e se separam da areia comum."],
+      ["Resultado", "O teor sobe, mas o concentrado ainda mistura vários lantanídeos — e, na monazita, tório."]
+    ]
+  },
+  "etapa-lixivia": {
+    kicker: "Etapa 03",
+    title: "Lixiviação",
+    icon: "fa-solid fa-vial",
+    bar: "#7ee7ff",
+    lead: "O concentrado sólido vira solução. Só então a extração por solvente consegue escolher íon por íon.",
+    facts: [
+      ["Reagentes", "Conforme o minério, usam-se ácidos (como sulfúrico ou clorídrico) ou rotas alcalinas, depois de um cozimento térmico."],
+      ["O que sai", "Uma solução com vários Ln³⁺ juntos. Cério, lantânio e neodímio ainda estão misturados."],
+      ["Efluente", "Licor ácido e tortas de resíduo precisam de neutralização. Despejar isso no rio é o erro que a feira deve apontar."]
+    ]
+  },
+  "etapa-solvente": {
+    kicker: "Etapa 04",
+    title: "Extração por solvente",
+    icon: "fa-solid fa-flask-vial",
+    bar: "#2ad4ff",
+    lead: "É o coração da planta. Dois líquidos que não se misturam trocam os metais, um pouquinho de cada vez.",
+    facts: [
+      ["As fases", "Fase aquosa ácida com os íons e fase orgânica com um extratante (molécula que prefere uns lantanídeos a outros)."],
+      ["A cascata", "Misturadores-decantadores em série. Cada estágio enriquece um metal e empobrece o vizinho. Podem ser dezenas ou mais de cem estágios."],
+      ["Por que é difícil", "A diferença de raio iônico entre vizinhos é mínima. Um único contato quase não separa neodímio de praseodímio."],
+      ["Produto", "Soluções puras são precipitadas e calcinadas até óxidos, que depois podem virar metal."]
+    ]
+  },
+  "torio-planta": {
+    kicker: "Controle radiológico",
+    title: "O tório não sai de graça",
+    icon: "fa-solid fa-radiation",
+    bar: "#8d6e5c",
+    lead: "Monazita é fosfato de terras raras que naturalmente inclui tório. Separar o neodímio sem um plano para o tório só empurra o problema para o pátio de rejeitos.",
+    facts: [
+      ["O que acontece", "Na lixiviação, o tório pode ser precipitado à parte ou seguir num resíduo sólido. Esse resíduo é mais radioativo que o minério original, porque foi concentrado."],
+      ["Th-232", "Decai devagar, mas filhos como o rádio e o radônio entram na gestão de dose dos trabalhadores e da poeira."],
+      ["O que a feira deve dizer", "Energia limpa no carro elétrico não apaga o passivo da mina. Barreira, monitoramento e fechamento fazem parte do custo do ímã."]
+    ]
+  },
+  ima: {
+    kicker: "Produto · Nd₂Fe₁₄B",
+    title: "Ímã de neodímio-ferro-boro",
+    icon: "fa-solid fa-magnet",
+    bar: "#2ad4ff",
+    lead: "Descoberto nos anos 1980, é o ímã permanente comercial mais forte. Poucos gramas substituem um bloco grande de ferrite.",
+    facts: [
+      ["Composição", "A fase principal é Nd₂Fe₁₄B. Disprósio ou térbio entram nas bordas dos grãos para segurar a coercividade no calor."],
+      ["Onde", "Motores, geradores, HDs, fones, ressonância magnética e travas industriais."],
+      ["Limite", "Corroem se não forem niquelados. Acima da temperatura de trabalho da liga, perdem magnetização de forma permanente."]
+    ]
+  },
+  ev: {
+    kicker: "Aplicação · tração",
+    title: "Motor de carro elétrico",
+    icon: "fa-solid fa-car-side",
+    bar: "#7ee7ff",
+    lead: "Um motor síncrono de ímãs permanentes coloca NdFeB no rotor. O campo já está lá; a bateria só alimenta o estator.",
+    facts: [
+      ["Por que terras raras", "Mais torque por quilo do que um motor de indução do mesmo porte. Isso alivia o carro."],
+      ["Quanto", "Um motor de passeio pode levar cerca de 1 a 2 kg de ímãs, conforme o projeto. Não é uma tonelada por carro."],
+      ["Calor", "Disprósio evita que o ímã enfraqueça na faixa de trabalho. Sem esse aditivo, o motor teria de ser maior ou menos exigido."],
+      ["Não confundir", "A bateria é de lítio. O ímã é de neodímio. São cadeias de mineração diferentes."]
+    ]
+  },
+  eolica: {
+    kicker: "Aplicação · geração",
+    title: "Gerador de turbina eólica",
+    icon: "fa-solid fa-wind",
+    bar: "#2ad4ff",
+    lead: "Turbinas com caixa de engrenagens podem evitar ímãs de terras raras. As de acionamento direto, comuns no mar, usam muito NdFeB.",
+    facts: [
+      ["Escala", "Um gerador direto de vários megawatts pode levar centenas de quilos de ímãs — bem mais que um carro."],
+      ["Vantagem", "Menos engrenagens, menos manutenção no topo da torre."],
+      ["Troca", "Projetos novos testam geradores sem terras raras ou com menos disprósio, justamente pelo custo e pelo passivo da mina."]
+    ]
+  },
+  phone: {
+    kicker: "Aplicação · consumo",
+    title: "Smartphone",
+    icon: "fa-solid fa-mobile-screen",
+    bar: "#7ee7ff",
+    lead: "A massa de terra rara num celular é pequena, mas são bilhões de aparelhos.",
+    facts: [
+      ["Ímãs", "Alto-falante, motorzinho de vibração e atuador de foco da câmera usam NdFeB minúsculo."],
+      ["Tela e vidro", "Índio (que não é terra rara) entra no óxido condutor da tela. Európio e térbio podem aparecer em fósforos de algumas telas e LEDs."],
+      ["Reciclagem", "A massa por aparelho é tão baixa que recuperar neodímio do celular ainda é mais cara do que minerar — um problema em aberto."]
+    ]
+  },
+  lente: {
+    kicker: "Aplicação · óptica",
+    title: "Lantânio no vidro",
+    icon: "fa-solid fa-camera",
+    bar: "#ead9c4",
+    lead: "Óxido de lantânio aumenta o índice de refração sem deixar o vidro pesado demais. A lente fica mais fina.",
+    facts: [
+      ["Onde", "Objetivas de câmera, alguns óculos e fibras especiais."],
+      ["Polimento", "Óxido de cério é o abrasivo clássico para polir vidro até ficar óptico. Não é o mesmo uso do ímã."],
+      ["Química", "La³⁺ entra na rede do silicato. Não há radioatividade relevante nessa aplicação."]
+    ]
+  },
+  catalisador: {
+    kicker: "Aplicação · química industrial",
+    title: "Cério e lantânio como catalisadores",
+    icon: "fa-solid fa-oil-can",
+    bar: "#d4b896",
+    lead: "Em massa, catalisadores consomem uma fatia grande das terras raras leves — maior do que a dos ímãs, em vários anos.",
+    facts: [
+      ["Refino", "Zeólitas com lantânio quebram moléculas pesadas de petróleo em gasolina e diesel."],
+      ["Escapamento", "Óxido de cério guarda e solta oxigênio no catalisador automotivo, ajudando a queimar CO e hidrocarbonetos."],
+      ["Diferença", "Aqui o elemento trabalha como óxido, não como metal de ímã. Por isso a pureza exigida pode ser menor."]
+    ]
+  }
+};
+
+const ETAPAS = {
+  "etapa-brita": {
+    kicker: "Britagem",
+    title: "Liberar o mineral",
+    body: "Britadores e moinhos reduzem a rocha até o grão de bastnasita ou monazita ficar solto. Sem esse pó, flotação e química não têm o que agarrar. É também uma das etapas que mais consomem eletricidade."
+  },
+  "etapa-concentra": {
+    kicker: "Concentração",
+    title: "Jogar a ganga fora",
+    body: "Flotação com bolhas, ou um campo magnético forte, sobe o teor do minério. O concentrado ainda mistura vários lantanídeos. Se a origem for monazita, o tório continua no bolo."
+  },
+  "etapa-lixivia": {
+    kicker: "Lixiviação",
+    title: "Do sólido para a solução",
+    body: "Ácidos ou uma rota alcalina atacam o concentrado. Os metais passam a íons Ln³⁺ numa solução aquosa. O licor ácido e a torta de resíduo precisam de tratamento — não de um córrego."
+  },
+  "etapa-solvente": {
+    kicker: "Extração por solvente",
+    title: "Por que a separação é tão longa",
+    body: "Os lantanídeos formam íons 3+ quase do mesmo tamanho. Um único contato com o solvente orgânico quase não os distingue. A planta repete a troca entre a fase aquosa e a fase orgânica em cascata, como uma destilação, até cada fração ficar pura o bastante para virar óxido."
+  }
+};
+
+const overlay = document.getElementById("overlay");
+const factsEl = document.getElementById("modal-facts");
+
+function openFicha(id) {
+  const f = FICHAS[id];
+  if (!f) return;
+  document.getElementById("modal-kicker").textContent = f.kicker;
+  document.getElementById("modal-title").textContent = f.title;
+  document.getElementById("modal-lead").textContent = f.lead;
+  document.getElementById("modal-bar").style.background = f.bar;
+  document.getElementById("modal-visual").innerHTML = '<i class="' + f.icon + ' text-neon-300"></i>';
+  factsEl.innerHTML = f.facts.map(function (pair) {
+    return '<div class="rounded-lg bg-earth-700/60 px-3 py-2"><dt class="text-[11px] uppercase tracking-wider text-neon-300">' + pair[0] + '</dt><dd class="mt-0.5 text-earth-50">' + pair[1] + '</dd></div>';
+  }).join("");
+  overlay.classList.remove("hidden");
+  overlay.classList.add("flex");
+  document.getElementById("close").focus();
+}
+
+function closeFicha() {
+  overlay.classList.add("hidden");
+  overlay.classList.remove("flex");
+}
+
+function showScreen(name) {
+  document.querySelectorAll(".screen").forEach(function (el) {
+    el.classList.toggle("active", el.id === "screen-" + name);
+  });
+  document.getElementById("tab-mina").className = "nav-btn rounded-md px-3 py-1.5 font-medium " + (name === "mina" ? "bg-earth-300 text-earth-700" : "text-steel-200");
+  document.getElementById("tab-planta").className = "nav-btn rounded-md px-3 py-1.5 font-medium " + (name === "planta" ? "bg-neon-400 text-steel-900" : "text-steel-200");
+  window.scrollTo(0, 0);
+}
+
+function showEtapa(id) {
+  const e = ETAPAS[id];
+  if (!e) return;
+  document.getElementById("etapa-kicker").textContent = e.kicker;
+  document.getElementById("etapa-title").textContent = e.title;
+  document.getElementById("etapa-body").textContent = e.body;
+  document.querySelectorAll(".step").forEach(function (el) {
+    el.classList.toggle("step-on", el.getAttribute("data-id") === id);
+  });
+}
+
+document.querySelectorAll("[data-id]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    const id = el.getAttribute("data-id");
+    if (ETAPAS[id]) showEtapa(id);
+    openFicha(id);
+  });
+});
+
+document.querySelectorAll("[data-screen]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    showScreen(el.getAttribute("data-screen"));
+  });
+});
+
+document.getElementById("close").addEventListener("click", closeFicha);
+overlay.addEventListener("click", function (e) { if (e.target === overlay) closeFicha(); });
+document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeFicha(); });
+showScreen("mina");
+</script>
+</body>
+</html>
