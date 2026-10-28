@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geopolítica e Impacto das Terras Raras</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuração Tailwind para tema customizado -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#0f1512',
+            'bg-secondary': '#151d18',
+            'bg-panel': '#1c2420',
+            'border-color': '#2a3a33',
+            'neon-green': '#22ff9d',
+            'neon-cyan': '#22d3ee',
+            'neon-amber': '#f59e0b',
+            'neon-red': '#ff3366',
+            'text-primary': '#e6f4ee',
+            'text-secondary': '#9fb5aa'
+          },
+          boxShadow: {
+            'neon-green': '0 0 15px rgba(34, 255, 157, 0.25)',
+            'neon-red': '0 0 15px rgba(255, 51, 102, 0.25)',
+            'neon-amber': '0 0 15px rgba(245, 158, 11, 0.25)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, rgba(34, 255, 157, 0.08), transparent 55%), #0f1512;
+      color: #e6f4ee;
+      line-height: 1.6;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(34, 255, 157, 0.4);
+      border-radius: 999px;
+    }
+
+    .bar-fill {
+      transition: width 0.45s ease, background-color 0.45s ease;
+    }
+
+    .action-card {
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .action-card:hover:not(:disabled) {
+      transform: translateY(-4px);
+      border-color: rgba(34, 255, 157, 0.8);
+      box-shadow: 0 20px 40px -30px rgba(34, 255, 157, 0.9);
+    }
+
+    .action-card:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .log-item {
+      animation: log-fade-in 0.4s ease forwards;
+    }
+
+    @keyframes log-fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .glow-text {
+      text-shadow: 0 0 25px rgba(34, 255, 157, 0.25);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+  <!-- Cabeçalho -->
+  <header class="border-b border-border-color bg-bg-secondary/80 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div>
+        <p class="text-xs uppercase tracking-[0.4em] text-neon-green/80">Simulação Geopolítica</p>
+        <h1 class="glow-text text-2xl font-semibold sm:text-3xl lg:text-4xl">Geopolítica e Impacto das Terras Raras</h1>
+        <p class="mt-1 text-sm text-text-secondary">O dilema entre desenvolvimento tecnológico, geopolítica e sustentabilidade ambiental.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 text-sm">
+        <div class="rounded-full border border-border-color px-4 py-2">
+          <span class="text-text-secondary">Turno</span>
+          <span id="turn-counter" class="ml-2 font-semibold text-neon-cyan">1</span>
+        </div>
+        <div class="rounded-full border border-border-color px-4 py-2">
+          <span class="text-text-secondary">Modo</span>
+          <span class="ml-2 font-semibold">Baseado em Turnos</span>
+        </div>
+        <button id="next-turn"
+          class="group flex items-center gap-2 rounded-full border border-neon-green/60 px-5 py-2 font-medium text-neon-green transition hover:bg-neon-green/10 hover:shadow-neon-green">
+          Avançar Turno
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.66675 4L10.6667 8L6.66675 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[2fr_1fr] lg:px-8">
+    <!-- Coluna Esquerda -->
+    <section class="flex flex-col gap-6">
+      <!-- Painel de Recursos -->
+      <div class="rounded-2xl border border-border-color bg-bg-panel/80 shadow-lg shadow-black/20">
+        <div class="flex flex-col gap-1 border-b border-border-color px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 class="text-lg font-semibold">Painel de Recursos Estratégicos</h2>
+            <p class="text-sm text-text-secondary">Monitore o equilíbrio entre progresso e colapso ambiental.</p>
+          </div>
+          <p class="text-xs uppercase tracking-[0.3em] text-text-secondary">Indicadores em Tempo Real</p>
+        </div>
+        <div class="grid gap-5 px-6 py-6 md:grid-cols-2">
+          <!-- Nível Tecnológico -->
+          <article class="flex flex-col gap-3 rounded-xl border border-border-color/80 bg-bg-secondary/60 p-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-medium">Nível Tecnológico (Tech Level)</h3>
+                <p class="text-sm text-text-secondary">Impulsiona reciclagem, eficiência e soberania tecnológica.</p>
+              </div>
+              <span id="tech-value" class="text-lg font-semibold text-neon-cyan">1</span>
+            </div>
+            <div class="h-2 w-full overflow-hidden rounded-full bg-white/5">
+              <div id="tech-bar" class="bar-fill h-full rounded-full bg-gradient-to-r from-neon-cyan to-neon-green" style="width: 10%"></div>
+            </div>
+            <p class="text-xs text-text-secondary">Alvo para Vitória Tecnológica: <span class="text-neon-green">Tech Level >= 10</span></p>
+          </article>
+
+          <!-- Reservas de Terras Raras -->
+          <article class="flex flex-col gap-3 rounded-xl border border-border-color/80 bg-bg-secondary/60 p-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-medium">Reservas de Terras Raras (Nd/Li)</h3>
+                <p class="text-sm text-text-secondary">Recurso finito. Extração excessiva acelera o esgotamento.</p>
+              </div>
+              <span id="reserves-value" class="text-lg font-semibold text-neon-green">100%</span>
+            </div>
+            <div class="h-2 w-full overflow-hidden rounded-full bg-white/5">
+              <div id="reserves-bar" class="bar-fill h-full rounded-full bg-gradient-to-r from-neon-green to-emerald-400" style="width: 100%"></div>
+            </div>
+            <p class="text-xs text-text-secondary">Crítico abaixo de <span class="text-neon-amber">25%</span></p>
+          </article>
+
+          <!-- Poluição / Rejeitos Tóxicos -->
+          <article class="flex flex-col gap-3 rounded-xl border border-border-color/80 bg-bg-secondary/60 p-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-medium">Poluição / Rejeitos Tóxicos</h3>
+                <p class="text-sm text-text-secondary">Acumula-se com mineração. Desastre ambiental em 100%.</p>
+              </div>
+              <span id="pollution-value" class="text-lg font-semibold text-neon-amber">0%</span>
+            </div>
+            <div class="h-2 w-full overflow-hidden rounded-full bg-white/5">
+              <div id="pollution-bar" class="bar-fill h-full rounded-full bg-gradient-to-r from-neon-amber to-neon-red" style="width: 0%"></div>
+            </div>
+            <p class="text-xs text-text-secondary">Alerta máximo em <span class="text-neon-red">>= 80%</span></p>
+          </article>
+
+          <!-- Saúde Ambiental -->
+          <article class="flex flex-col gap-3 rounded-xl border border-border-color/80 bg-bg-secondary/60 p-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-medium">Saúde Ambiental (Ecologia)</h3>
+                <p class="text-sm text-text-secondary">Resiliência dos ecossistemas. Colapso em 0%.</p>
+              </div>
+              <span id="ecology-value" class="text-lg font-semibold text-neon-green">100%</span>
+            </div>
+            <div class="h-2 w-full overflow-hidden rounded-full bg-white/5">
+              <div id="ecology-bar" class="bar-fill h-full rounded-full bg-gradient-to-r from-emerald-400 to-neon-green" style="width: 100%"></div>
+            </div>
+            <p class="text-xs text-text-secondary">Recuperação é lenta sem medidas sustentáveis.</p>
+          </article>
+
+          <!-- Capital / Fundos -->
+          <article class="md:col-span-2 flex flex-col gap-3 rounded-xl border border-border-color/80 bg-bg-secondary/60 p-5">
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 class="font-medium">Capital / Fundos ($)</h3>
+                <p class="text-sm text-text-secondary">Utilizado para investir em R&D, reciclagem e transição sustentável.</p>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <span class="text-sm text-text-secondary">$</span>
+                <span id="money-value" class="text-2xl font-semibold text-neon-green">850000</span>
+              </div>
+            </div>
+            <div class="h-2 w-full overflow-hidden rounded-full bg-white/5">
+              <div class="bar-fill h-full rounded-full bg-gradient-to-r from-neon-green/80 to-neon-cyan/80" style="width: 100%"></div>
+            </div>
+            <p class="text-xs text-text-secondary">Gerencie com cautela: inovação tem alto custo inicial.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Ações do Jogador -->
+      <div class="rounded-2xl border border-border-color bg-bg-panel/80 shadow-lg shadow-black/20">
+        <div class="flex flex-col gap-1 border-b border-border-color px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 class="text-lg font-semibold">Plano de Ação por Turno</h2>
+            <p class="text-sm text-text-secondary">Escolha uma estratégia. Cada ação impacta recursos e definição geopolítica.</p>
+          </div>
+          <p class="text-xs uppercase tracking-[0.3em] text-text-secondary">Decisões com Trade-off</p>
+        </div>
+        <div class="grid gap-4 px-6 py-6 md:grid-cols-3">
+          <!-- Mineração Tradicional -->
+          <button data-action="traditional" class="action-card group flex h-full flex-col gap-4 rounded-xl border border-border-color/80 bg-gradient-to-b from-white/5 to-transparent p-5 text-left">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-lg font-semibold">Mineração Tradicional</h3>
+                <p class="mt-1 text-sm text-text-secondary">Alta produtividade imediata para suprir demanda global.</p>
+              </div>
+              <span class="rounded-full border border-neon-amber/60 px-3 py-1 text-xs text-neon-amber">Exploratório</span>
+            </div>
+            <ul class="flex flex-col gap-2 text-sm text-text-secondary">
+              <li class="flex items-center justify-between"><span>+ Terras Raras Extraídas</span><span class="text-neon-green">Alto</span></li>
+              <li class="flex items-center justify-between"><span>+ Capital ($)</span><span class="text-neon-green">+ Alto</span></li>
+              <li class="flex items-center justify-between"><span>+ Poluição</span><span class="text-neon-red">++ Massivo</span></li>
+              <li class="flex items-center justify-between"><span>- Saúde Ambiental</span><span class="text-neon-red">Rápido</span></li>
+            </ul>
+            <p class="mt-auto text-xs text-text-secondary">Ideal para caixa imediato, extremamente custoso ao meio ambiente.</p>
+          </button>
+
+          <!-- Mineração Sustentável / P&D -->
+          <button data-action="sustainable" class="action-card group flex h-full flex-col gap-4 rounded-xl border border-border-color/80 bg-gradient-to-b from-neon-green/5 to-transparent p-5 text-left">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-lg font-semibold">Mineração Sustentável / P&D</h3>
+                <p class="mt-1 text-sm text-text-secondary">Investimento em tecnologias limpas e maior eficiência a longo prazo.</p>
+              </div>
+              <span class="rounded-full border border-neon-green/60 px-3 py-1 text-xs text-neon-green">Transição</span>
+            </div>
+            <ul class="flex flex-col gap-2 text-sm text-text-secondary">
+              <li class="flex items-center justify-between"><span>Custo ($)</span><span class="text-neon-red">Alto</span></li>
+              <li class="flex items-center justify-between"><span>+ Nível Tecnológico</span><span class="text-neon-green">Consistente</span></li>
+              <li class="flex items-center justify-between"><span>+ Poluição</span><span class="text-neon-green">Mínima</span></li>
+              <li class="flex items-center justify-between"><span>Extração Inicial</span><span class="text-neon-amber">Moderada/Baixa</span></li>
+            </ul>
+            <p class="mt-auto text-xs text-text-secondary">Fortalece a autonomia tecnológica com menor impacto ecológico.</p>
+          </button>
+
+          <!-- Reciclagem de E-lixo -->
+          <button data-action="recycle" class="action-card group flex h-full flex-col gap-4 rounded-xl border border-border-color/80 bg-gradient-to-b from-neon-cyan/5 to-transparent p-5 text-left">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="text-lg font-semibold">Reciclagem de E-lixo</h3>
+                <p class="mt-1 text-sm text-text-secondary">Reaproveita terras raras de dispositivos obsoletos, aliviando a pressão sobre jazidas.</p>
+              </div>
+              <span class="rounded-full border border-neon-cyan/60 px-3 py-1 text-xs text-neon-cyan">Circular</span>
+            </div>
+            <ul class="flex flex-col gap-2 text-sm text-text-secondary">
+              <li class="flex items-center justify-between"><span>Requisitos</span><span class="text-neon-cyan">Tech Level >= 3</span></li>
+              <li class="flex items-center justify-between"><span>Redução de Nova Mineração</span><span class="text-neon-green">Significativa</span></li>
+              <li class="flex items-center justify-between"><span>+ Capital ($)</span><span class="text-neon-green">Moderado</span></li>
+              <li class="flex items-center justify-between"><span>+ Poluição</span><span class="text-neon-green">Muito Baixa</span></li>
+            </ul>
+            <p class="mt-auto text-xs text-text-secondary">Quanto maior seu Tech Level, mais eficiente torna-se esta ação.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coluna Direita -->
+    <aside class="flex flex-col gap-6">
+      <!-- Log de Eventos -->
+      <div class="flex h-full flex-col rounded-2xl border border-border-color bg-bg-panel/80 shadow-lg shadow-black/20">
+        <div class="flex items-center justify-between border-b border-border-color px-6 py-5">
+          <div>
+            <h2 class="text-lg font-semibold">Log de Eventos</h2>
+            <p class="text-sm text-text-secondary">Crises, avanços e consequências das suas decisões.</p>
+          </div>
+          <span class="rounded-full border border-border-color px-3 py-1 text-xs text-text-secondary">Ao Vivo</span>
+        </div>
+        <div id="event-log" class="flex flex-1 flex-col gap-3 overflow-y-auto px-6 py-6">
+          <div class="log-item rounded-xl border border-neon-green/40 bg-neon-green/5 px-4 py-3 text-sm">
+            <p class="font-medium text-neon-green">Início da Simulação</p>
+            <p class="mt-1 text-text-secondary">Mundo em corrida geopolítica por terras raras. Equilibre soberania tecnológica e integridade ecológica.</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Modal de Game Over / Vitória -->
+  <div id="end-modal" class="fixed inset-0 hidden items-center justify-center bg-black/80 px-4">
+    <div class="relative w-full max-w-xl overflow-hidden rounded-2xl border border-border-color bg-bg-panel shadow-2xl">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon-green/60 to-transparent"></div>
+      <div class="flex flex-col gap-6 px-6 py-8 text-center sm:px-10">
+        <div>
+          <p id="end-badge" class="text-xs uppercase tracking-[0.4em]">Resultado</p>
+          <h2 id="end-title" class="mt-3 text-3xl font-semibold sm:text-4xl">Fim de Jogo</h2>
+          <p id="end-subtitle" class="mt-2 text-text-secondary">Avaliação das suas decisões estratégicas.</p>
+        </div>
+        <div class="grid gap-3 rounded-xl border border-border-color/80 bg-bg-secondary/60 p-5 text-left sm:grid-cols-2">
+          <div class="flex items-center justify-between">
+            <span class="text-text-secondary">Turnos Sobrevividos</span>
+            <span id="stat-turns" class="font-semibold">0</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-text-secondary">Nível Tecnológico Final</span>
+            <span id="stat-tech" class="font-semibold">0</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-text-secondary">Reservas Restantes</span>
+            <span id="stat-reserves" class="font-semibold">0%</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-text-secondary">Poluição Acumulada</span>
+            <span id="stat-pollution" class="font-semibold">0%</span>
+          </div>
+          <div class="flex items-center justify-between sm:col-span-2">
+            <span class="text-text-secondary">Saúde Ambiental Final</span>
+            <span id="stat-ecology" class="font-semibold">0%</span>
+          </div>
+          <div class="flex items-center justify-between sm:col-span-2">
+            <span class="text-text-secondary">Capital Final</span>
+            <span id="stat-money" class="font-semibold">$0</span>
+          </div>
+        </div>
+        <p id="end-message" class="text-sm text-text-secondary"></p>
+        <button id="restart-game"
+          class="mx-auto flex items-center gap-2 rounded-full border border-neon-green/60 px-6 py-2 font-medium text-neon-green transition hover:bg-neon-green/10 hover:shadow-neon-green">
+          Reiniciar Simulação
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ===================================================
+    // ESTADO GLOBAL DO JOGO
+    // ===================================================
+    const gameState = {
+      turn: 1,
+      techLevel: 1,
+      reserves: 100,
+      pollution: 0,
+      ecology: 100,
+      money: 850000,
+      gameOver: false,
+      victory: false,
+      eventCooldown: 0
+    };
+
+    // ===================================================
+    // ELEMENTOS DA INTERFACE
+    // ===================================================
+    const turnCounterEl = document.getElementById('turn-counter');
+    const techValueEl = document.getElementById('tech-value');
+    const techBarEl = document.getElementById('tech-bar');
+    const reservesValueEl = document.getElementById('reserves-value');
+    const reservesBarEl = document.getElementById('reserves-bar');
+    const pollutionValueEl = document.getElementById('pollution-value');
+    const pollutionBarEl = document.getElementById('pollution-bar');
+    const ecologyValueEl = document.getElementById('ecology-value');
+    const ecologyBarEl = document.getElementById('ecology-bar');
+    const moneyValueEl = document.getElementById('money-value');
+    const nextTurnBtn = document.getElementById('next-turn');
+    const actionButtons = document.querySelectorAll('[data-action]');
+    const eventLogEl = document.getElementById('event-log');
+    const endModalEl = document.getElementById('end-modal');
+    const endBadgeEl = document.getElementById('end-badge');
+    const endTitleEl = document.getElementById('end-title');
+    const endSubtitleEl = document.getElementById('end-subtitle');
+    const endMessageEl = document.getElementById('end-message');
+    const statTurnsEl = document.getElementById('stat-turns');
+    const statTechEl = document.getElementById('stat-tech');
+    const statReservesEl = document.getElementById('stat-reserves');
+    const statPollutionEl = document.getElementById('stat-pollution');
+    const statEcologyEl = document.getElementById('stat-ecology');
+    const statMoneyEl = document.getElementById('stat-money');
+    const restartGameBtn = document.getElementById('restart-game');
+
+    // ===================================================
+    // UTILITÁRIOS
+    // ===================================================
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function formatMoney(value) {
+      return value.toLocaleString('pt-BR');
+    }
+
+    function addLog(title, description, type = 'info') {
+      const item = document.createElement('div');
+      item.classList.add('log-item', 'rounded-xl', 'border', 'px-4', 'py-3', 'text-sm');
+
+      if (type === 'danger') {
+        item.classList.add('border-neon-red/60', 'bg-neon-red/5');
+        titleEl = `<p class="font-medium text-neon-red">${title}</p>`;
+      } else if (type === 'warning') {
+        item.classList.add('border-neon-amber/60', 'bg-neon-amber/5');
+        titleEl = `<p class="font-medium text-neon-amber">${title}</p>`;
+      } else if (type === 'success') {
+        item.classList.add('border-neon-green/60', 'bg-neon-green/5');
+        titleEl = `<p class="font-medium text-neon-green">${title}</p>`;
+      } else {
+        item.classList.add('border-neon-cyan/40', 'bg-neon-cyan/5');
+        titleEl = `<p class="font-medium text-neon-cyan">${title}</p>`;
+      }
+
+      item.innerHTML = titleEl + `<p class="mt-1 text-text-secondary">${description}</p>`;
+      eventLogEl.prepend(item);
+
+      while (eventLogEl.children.length > 14) {
+        eventLogEl.removeChild(eventLogEl.lastChild);
+      }
+    }
+
+    let titleEl;
+
+    // ===================================================
+    // ATUALIZAÇÃO DA INTERFACE
+    // ===================================================
+    function updateUI() {
+      turnCounterEl.textContent = gameState.turn;
+      techValueEl.textContent = gameState.techLevel.toFixed(1);
+      techBarEl.style.width = `${clamp((gameState.techLevel / 12) * 100, 0, 100)}%`;
+
+      reservesValueEl.textContent = `${Math.round(gameState.reserves)}%`;
+      reservesBarEl.style.width = `${clamp(gameState.reserves, 0, 100)}%`;
+
+      pollutionValueEl.textContent = `${Math.round(gameState.pollution)}%`;
+      pollutionBarEl.style.width = `${clamp(gameState.pollution, 0, 100)}%`;
+
+      if (gameState.pollution >= 80) {
+        pollutionValueEl.classList.add('text-neon-red');
+        pollutionValueEl.classList.remove('text-neon-amber');
+      } else {
+        pollutionValueEl.classList.add('text-neon-amber');
+        pollutionValueEl.classList.remove('text-neon-red');
+      }
+
+      ecologyValueEl.textContent = `${Math.round(gameState.ecology)}%`;
+      ecologyBarEl.style.width = `${clamp(gameState.ecology, 0, 100)}%`;
+
+      if (gameState.ecology <= 25) {
+        ecologyValueEl.classList.add('text-neon-red');
+        ecologyValueEl.classList.remove('text-neon-green');
+        ecologyBarEl.classList.remove('from-emerald-400', 'to-neon-green');
+        ecologyBarEl.classList.add('from-neon-amber', 'to-neon-red');
+      } else {
+        ecologyValueEl.classList.add('text-neon-green');
+        ecologyValueEl.classList.remove('text-neon-red');
+        ecologyBarEl.classList.add('from-emerald-400', 'to-neon-green');
+        ecologyBarEl.classList.remove('from-neon-amber', 'to-neon-red');
+      }
+
+      moneyValueEl.textContent = formatMoney(Math.round(gameState.money));
+
+      // Habilita/Desabilita reciclagem por nível tecnológico
+      actionButtons.forEach((btn) => {
+        if (btn.dataset.action === 'recycle') {
+          btn.disabled = gameState.techLevel < 3;
+        }
+      });
+
+      checkGameState();
+    }
+
+    // ===================================================
+    // AÇÕES DO JOGADOR
+    // ===================================================
+    actionButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (gameState.gameOver || gameState.victory) return;
+
+        const action = btn.dataset.action;
+
+        if (action === 'traditional') {
+          // Mineração Tradicional
+          if (gameState.reserves <= 0) {
+            addLog('Jazidas Esgotadas', 'Não há reservas viáveis para mineração tradicional neste turno.', 'warning');
+            return;
+          }
+
+          const extract = 14 + Math.random() * 6;
+          gameState.reserves = clamp(gameState.reserves - extract, 0, 100);
+          gameState.pollution = clamp(gameState.pollution + 16 + Math.random() * 6, 0, 100);
+          gameState.ecology = clamp(gameState.ecology - 9 + Math.random() * -4, 0, 100);
+          gameState.money += 165000 + Math.random() * 45000;
+          gameState.techLevel = clamp(gameState.techLevel + 0.05, 1, 12);
+
+          addLog('Mineração Tradicional', 'Grande volume extraído. Lucro expressivo, mas com pico massivo de rejeitos tóxicos.', 'warning');
+        }
+
+        if (action === 'sustainable') {
+          // Mineração Sustentável / P&D
+          if (gameState.money < 220000) {
+            addLog('Fundos Insuficientes', 'Investimento em R&D sustentável exige pelo menos $220.000.', 'warning');
+            return;
+          }
+
+          const extract = 6 + Math.random() * 3;
+          gameState.money -= 220000;
+          gameState.reserves = clamp(gameState.reserves - extract, 0, 100);
+          gameState.pollution = clamp(gameState.pollution + 2 + Math.random() * 2, 0, 100);
+          gameState.ecology = clamp(gameState.ecology - 1 + Math.random() * 1, 0, 100);
+          gameState.techLevel = clamp(gameState.techLevel + 0.6 + Math.random() * 0.25, 1, 12);
+
+          addLog('Mineração Sustentável / P&D', 'Investimento em tecnologias limpas. Nível Tecnológico avança e poluição é minimizada.', 'success');
+        }
+
+        if (action === 'recycle') {
+          // Reciclagem de E-lixo
+          if (gameState.techLevel < 3) {
+            addLog('Tecnologia Insuficiente', 'Infraestrutura de reciclagem avançada indisponível. Requer Tech Level >= 3.', 'warning');
+            return;
+          }
+
+          if (gameState.money < 95000) {
+            addLog('Fundos Insuficientes', 'Reciclagem industrial de e-lixo exige pelo menos $95.000.', 'warning');
+            return;
+          }
+
+          const efficiency = clamp(gameState.techLevel / 10, 0.4, 0.95);
+          const recovered = (9 + Math.random() * 5) * efficiency;
+          gameState.money -= 95000;
+          gameState.reserves = clamp(gameState.reserves + recovered * 0.4, 0, 100); // Alivia pressão, não "gera" infinitamente
+          gameState.pollution = clamp(gameState.pollution - 4 - Math.random() * 3, 0, 100);
+          gameState.ecology = clamp(gameState.ecology + 2 + Math.random() * 2, 0, 100);
+          gameState.techLevel = clamp(gameState.techLevel + 0.15, 1, 12);
+          gameState.money += 70000 + Math.random() * 25000;
+
+          addLog('Reciclagem de E-lixo', `Circuito circular ativado. Eficiência baseada em seu avanço tecnológico. Pressão sobre jazidas foi reduzida.`, 'success');
+        }
+
+        updateUI();
+      });
+    });
+
+    // ===================================================
+    // AVANÇAR TURNO
+    // ===================================================
+    nextTurnBtn.addEventListener('click', () => {
+      if (gameState.gameOver || gameState.victory) return;
+
+      gameState.turn += 1;
+
+      // Passivo por turno
+      if (gameState.pollution > 0) {
+        gameState.ecology = clamp(gameState.ecology - gameState.pollution * 0.12, 0, 100);
+      }
+
+      if (gameState.reserves < 40) {
+        // Escassez geopolítica
+        if (gameState.eventCooldown <= 0 && Math.random() < 0.35) {
+          addLog('Crise na Cadeia de Suprimentos!', 'Escassez de terras raras eleva tensões geopolíticas e encarece insumos estratégicos.', 'warning');
+          gameState.money = clamp(gameState.money + 40000, 0, 2000000);
+          gameState.eventCooldown = 2;
+        }
+      }
+
+      if (gameState.pollution >= 70 && gameState.eventCooldown <= 0 && Math.random() < 0.4) {
+        addLog('Vazamento de Barragem de Rejeitos!', 'Incidente ambiental grave. Pressão internacional cresce e custos de remediação são inevitáveis.', 'danger');
+        gameState.money = clamp(gameState.money - 85000, 0, 2000000);
+        gameState.ecology = clamp(gameState.ecology - 6, 0, 100);
+        gameState.eventCooldown = 3;
+      }
+
+      if (gameState.techLevel >= 6 && Math.random() < 0.25 && gameState.eventCooldown <= 0) {
+        addLog('Avanço em Materiais Alternativos', 'Suas pesquisas geram inovações que reduzem a dependência crítica por terras raras.', 'success');
+        gameState.pollution = clamp(gameState.pollution - 3, 0, 100);
+        gameState.eventCooldown = 2;
+      }
+
+      if (gameState.eventCooldown > 0) gameState.eventCooldown -= 1;
+
+      updateUI();
+    });
+
+    // ===================================================
+    // VERIFICAÇÃO DE FIM DE JOGO / VITÓRIA
+    // ===================================================
+    function checkGameState() {
+      if (gameState.gameOver || gameState.victory) return;
+
+      // Condições de Game Over
+      if (gameState.pollution >= 100) {
+        triggerGameOver('DESASTRE AMBIENTAL', 'Acúmulo crítico de rejeitos tóxicos ultrapassou o limiar de segurança. Múltiplos vazamentos tornaram a região imprópria para habitação.', 'danger');
+        return;
+      }
+
+      if (gameState.ecology <= 0) {
+        triggerGameOver('COLAPSO ECOLÓGICO', 'A saúde ambiental atingiu zero. Ecossistemas colapsaram e a estabilidade regional foi irremediavelmente comprometida.', 'danger');
+        return;
+      }
+
+      // Condição de Vitória Tecnológica
+      if (gameState.techLevel >= 10 && gameState.pollution < 30 && gameState.ecology > 60) {
+        triggerVictory();
+        return;
+      }
+    }
+
+    function triggerGameOver(title, message, type) {
+      gameState.gameOver = true;
+
+      endBadgeEl.textContent = 'GAME OVER';
+      endBadgeEl.classList.remove('text-neon-green');
+      endBadgeEl.classList.add('text-neon-red');
+
+      endTitleEl.textContent = title;
+      endSubtitleEl.textContent = 'A transição falhou sob pressão entre demanda e sustentabilidade.';
+      endMessageEl.textContent = message;
+
+      populateStats();
+      endModalEl.classList.remove('hidden');
+      endModalEl.classList.add('flex');
+    }
+
+    function triggerVictory() {
+      gameState.victory = true;
+
+      endBadgeEl.textContent = 'VITÓRIA TECNOLÓGICA';
+      endBadgeEl.classList.remove('text-neon-red');
+      endBadgeEl.classList.add('text-neon-green');
+
+      endTitleEl.textContent = 'SOBERANIA TECNOLÓGICA SUSTENTÁVEL';
+      endSubtitleEl.textContent = 'Você alcançou um equilíbrio viável entre inovação e preservação ambiental.';
+      endMessageEl.textContent = 'Graças a investimentos em P&D e reciclagem circular, sua nação reduziu a dependência de mineração agressiva, mantendo ecossistemas resilientes e liderança tecnológica estratégica.';
+
+      populateStats();
+      endModalEl.classList.remove('hidden');
+      endModalEl.classList.add('flex');
+    }
+
+    function populateStats() {
+      statTurnsEl.textContent = gameState.turn;
+      statTechEl.textContent = gameState.techLevel.toFixed(1);
+      statReservesEl.textContent = `${Math.round(gameState.reserves)}%`;
+      statPollutionEl.textContent = `${Math.round(gameState.pollution)}%`;
+      statEcologyEl.textContent = `${Math.round(gameState.ecology)}%`;
+      statMoneyEl.textContent = `$${formatMoney(Math.round(gameState.money))}`;
+    }
+
+    // ===================================================
+    // REINICIAR JOGO
+    // ===================================================
+    restartGameBtn.addEventListener('click', () => {
+      gameState.turn = 1;
+      gameState.techLevel = 1;
+      gameState.reserves = 100;
+      gameState.pollution = 0;
+      gameState.ecology = 100;
+      gameState.money = 850000;
+      gameState.gameOver = false;
+      gameState.victory = false;
+      gameState.eventCooldown = 0;
+
+      eventLogEl.innerHTML = '';
+      addLog('Início da Simulação', 'Mundo em corrida geopolítica por terras raras. Equilibre soberania tecnológica e integridade ecológica.', 'info');
+
+      endModalEl.classList.add('hidden');
+      endModalEl.classList.remove('flex');
+
+      updateUI();
+    });
+
+    // ===================================================
+    // INICIALIZAÇÃO
+    // ===================================================
+    updateUI();
+  </script>
+</body>
+
+</html>
